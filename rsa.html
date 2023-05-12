@@ -14,78 +14,103 @@
 <!-- zero margin = wide layout -->
 <body style="margin: 0;">
 
-<div class="container">
-	<div class="header">
-		<a href="index.html"><span>Nathaniel Wise</span></a>
-	</div>
-	<div class="stripes"><span></span></div> 
-	<div class="nav">
-        <a href="index.html">Home</a>
-		<a href="about.html">About</a>
-		<a href="datascraping.html">Data collection efforts</a>
-		<div class="clearer"><span></span></div>
-	</div>
-	
-	<div class="stripes"><span></span></div>
+	<div class="container">
+		<div class="header">
+			<a href="index.html"><span>Nathaniel Wise</span></a>
+		</div>
 
-	<div class="main">
-	
-		<div class="left">
+		<div class="stripes"></div> 
+		
+		<div class="nav">
+			<a href="index.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="datascraping.html">Data collection efforts</a>
+			<div class="clearer"><span></span></div>
+		</div>
+		
+		<div class="stripes"><span></span></div>
 
-			<div class="content">
-					Message me securely at <a href="mailto:nathanieljwise@protonmail.com"><code>nathanieljwise@protonmail.com</code></a> by following these steps:<br />
-					
-						Encrypt your message using my <a href="public_key.pem">public key</a>.<br /><br />
+		<div class="main">	
+			<div class="left">
+				<div class="content">
+						<p>
+							Message me securely at <a href="mailto:nathanieljwise@protonmail.com"><code>nathanieljwise@protonmail.com</code></a> by following these steps:<br />
+						</p>
+						<ul>
+							<li>
+								Encrypt your message using my <a href="assets/public_key.pem">public key</a>.<br />
+								&nbsp;&nbsp;<code>openssl rsautl -encrypt -pubin -inkey public_key.pem -in unencrypted.txt -out myMessage.enc</code>
+							</li><br />
+							<li>
+								Generate a hash of your encrypted message:<br />
+								&nbsp;&nbsp;<code>openssl dgst -sha256 -binary myMessage.enc > myMessage_enc.hash</code>
+							</li><br />
+							<li>
+								Send your encrypted message <code>myMessage.enc</code> and its hash <code>myMessage_enc.hash</code> to the secure email address above.<br />
+							</li><br />
+							<li>
+								I'll hash the encrypted message I received from you, and verify my hash against yours.<br />
+								&nbsp;&nbsp;<code>openssl dgst -sha256 -binary myMessage.enc > received_myMessage_enc.hash</code><br />
+								&nbsp;&nbsp;<code>diff -s myMessage_enc.hash received_myMessage_enc.hash</code>
+							</li><br />
+							<li>
+								Finally, I'll decrypt your message.<br />
+								&nbsp;&nbsp;<code>openssl rsautl -decrypt -inkey private_key.pem -in myMessage.enc -out decrypted.txt</code>
+							</li>
+						</ul>
+						
 
-				<p>
-					-----BEGIN PUBLIC KEY-----<br />
-					MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAsurVmRQBTviqVMKfPPp2<br />
-					FuUpDs5qKaDmBFrGplzvHFPVwFu7UG+n/ouWETMM8AEvwjXFel9RzHxbIFi0+lqN<br />
-					nmG95sAQrlWEPo9OS6IDISz06x3eDdhsgP69Q/RktG+erTPL77uRCvrcnsIGFAGo<br />
-					tBouREY57RzxNOcLV+B+wWOmro3FXF4X4+QQH5veAGU6ICymJ45bpbpCkIAY02Rq<br />
-					W85lLUKtRiMk1wAlSRJvZtSAhHs6FMFc01iAcoPG40S78lWwLIWSk/QO9TinZGjr<br />
-					bF8dWiA/LKz4aJyQshU0YKFuUg8F5L95yFkMplRHCdQ7NpNuPSAPFg/+9s8NzDTa<br />
-					mO8kdqhfORAOLFEtBmGoP7DFZ8KLo8XqieubZsF577MJMx8mVbVt+VVDLZupFsiu<br />
-					sDo7zKqJH4hDmAMDVLF22Bwz7CaPLZAt0D+h1GQdXY9/aw0wTt+NC2Ij7Pf79x25<br />
-					ranIvC9H0SajGesiDWqbp91wIlt4kOOu/K6UwTdidaBPn/3o4d3oYJjkOtQdKjgO<br />
-					+L09fQnBgP/XkGSOLY7KOCXTib3L+bk+864ApcGKeM1fNn0hVySUXHIMls7FYKoV<br />
-					QZs5FUzz4okmIs3/2BwsBlu00jkkSQPdv/jGTtkHVNJ/aYbEvqWqtrMOAbz/Yu/p<br />
-					fpFZcbjBDgzeDLPw/Y7Ch+kCAwEAAQ==<br />
-					-----END PUBLIC KEY-----<br />
-				</p>
+					<p>
+						<code>
+						-----BEGIN PUBLIC KEY-----<br />
+							MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAsurVmRQBTviqVMKfPPp2&nbsp;<br />
+							&nbsp;FuUpDs5qKaDmBFrGplzvHFPVwFu7UG+n/ouWETMM8AEvwjXFel9RzHxbIFi0+lqN&nbsp;<br />
+							&nbsp;nmG95sAQrlWEPo9OS6IDISz06x3eDdhsgP69Q/RktG+erTPL77uRCvrcnsIGFAGo&nbsp;<br />
+							&nbsp;tBouREY57RzxNOcLV+B+wWOmro3FXF4X4+QQH5veAGU6ICymJ45bpbpCkIAY02Rq&nbsp;<br />
+							&nbsp;W85lLUKtRiMk1wAlSRJvZtSAhHs6FMFc01iAcoPG40S78lWwLIWSk/QO9TinZGjr&nbsp;<br />
+							&nbsp;bF8dWiA/LKz4aJyQshU0YKFuUg8F5L95yFkMplRHCdQ7NpNuPSAPFg/+9s8NzDTa&nbsp;<br />
+							&nbsp;mO8kdqhfORAOLFEtBmGoP7DFZ8KLo8XqieubZsF577MJMx8mVbVt+VVDLZupFsiu&nbsp;<br />
+							&nbsp;sDo7zKqJH4hDmAMDVLF22Bwz7CaPLZAt0D+h1GQdXY9/aw0wTt+NC2Ij7Pf79x25&nbsp;<br />
+							&nbsp;ranIvC9H0SajGesiDWqbp91wIlt4kOOu/K6UwTdidaBPn/3o4d3oYJjkOtQdKjgO&nbsp;<br />
+							&nbsp;+L09fQnBgP/XkGSOLY7KOCXTib3L+bk+864ApcGKeM1fNn0hVySUXHIMls7FYKoV&nbsp;<br />
+							&nbsp;QZs5FUzz4okmIs3/2BwsBlu00jkkSQPdv/jGTtkHVNJ/aYbEvqWqtrMOAbz/Yu/p&nbsp;<br />
+							&nbsp;fpFZcbjBDgzeDLPw/Y7Ch+kCAwEAAQ==&nbsp;<br />
+						-----END PUBLIC KEY-----
+					</code><br />
+					</p>
+				</div>
+
 			</div>
-
-		</div>
-
-		<div class="clearer"><span></span></div>
-
-	</div>
-
-	<div class="footer">
-	
-		<div class="col3">
-
-			<h2>Links</h2>
-			<ul>
-				<li><a href="https://github.com/nathanieljwise?tab=repositories">GitHub</a></li>
-				<li><a href="https://twitter.com/nathanieljwise">Twitter</a></li>
-				<li><a href="https://www.linkedin.com/in/nathanielwise">LinkedIn</a></li>
-			</ul>
-
-		</div>
-
-		<div class="bottom">
-				
-			<span class="left">&copy; 2022 <a href="index.html">Nathaniel Wise</a>. Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &amp; <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.</span>
-			<span class="right">Template design by <a href="http://templates.arcsin.se">Arcsin</a></span>
 
 			<div class="clearer"><span></span></div>
 
 		</div>
 
-	</div>
+		<div class="footer">
+<!-- 		
+			<div class="col3">
 
-</div>
+				<h2>Links</h2>
+				<ul>
+					<li><a href="https://github.com/nathanieljwise?tab=repositories">GitHub</a></li>
+					<li><a href="https://twitter.com/nathanieljwise">Twitter</a></li>
+					<li><a href="https://www.linkedin.com/in/nathanielwise">LinkedIn</a></li>
+				</ul>
+
+			</div> -->
+
+			<div class="bottom">
+					
+				<span class="left">&copy; 2022 <a href="index.html">Nathaniel Wise</a>. Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &amp; <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.</span>
+				<span class="right">Template design by <a href="http://templates.arcsin.se">Arcsin</a></span>
+
+				<div class="clearer"><span></span></div>
+
+			</div>
+
+		</div>
+
+	</div>
 
 </body>
 

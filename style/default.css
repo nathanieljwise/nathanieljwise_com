@@ -23,7 +23,7 @@ body {
 }
 
 p {
-	font-size: 16px;
+	font-size: 13px;
 	padding-bottom: 1.2em;
 }
 
@@ -36,12 +36,12 @@ blockquote {font: bold 1em sans-serif;}
 
 code {
 	background: #444;
-	display: block;
+	/* display: block; */
 	font-size: 12px;
-	margin: 0 10px 12px;
+	margin: 0 0 12px;
 	overflow: auto;
-	padding: 8px 10px;
-	white-space: pre;
+	padding: 5px 8px;
+	/* white-space: pre; */
 }
 
 img {border: none;}

@@ -49,24 +49,24 @@
 					<div class="inner">
 						<nav id="tmMainNav" class="tm-main-nav">
 							<ul>
-								<li> <!-- https://unsplash.com/photos/u34JNBOIQ10 -->
-									<a href="index.html" id="tmNavLink1" class="scrolly" data-bg-img="tareq-ajalyakin-72aEtYlS5K0-unsplash.jpg">
+								<li> <!-- https://unsplash.com/photos/xyuYk9oLA8I -->
+									<a href="index.html" id="tmNavLink1" class="scrolly" data-bg-img="samuel-scalzo-xyuYk9oLA8I-unsplash.jpg">
 										<i class="fas fa-home tm-nav-fa-icon"></i>
 										<span>Welcome</span>
 									</a>
 								</li>					
 								<li>
-									<a href="rsa.html" class="tmNavLink1" class="scrolly active">
-										<i class="fas fa-key tm-nav-fa-icon"></i> 
+									<a href="rsa.html" class="tmNavLink1" class="scrolly">
+										<i class="fas fa-key tm-nav-fa-icon"></i>
 										<span>Public Key</span>
 									</a>
 								</li>
 								<li>
-									<a href="about.html" id="tmNavLink1" class="scrolly" data-bg-img="samuel-scalzo-xyuYk9oLA8I-unsplash.jpg">
+									<a href="about.html" id="tmNavLink1" class="scrolly active">
 										<i class="fas fa-info tm-nav-fa-icon"></i>
 										<span>About</span>
 									</a>
-								</li>
+								</li>	
 							</ul>
 						</nav>
 						<br />
@@ -85,59 +85,22 @@
 				</div>
 
 				<div class="col-xl-9 col-lg-8 col-md-12 col-sm-12 tm-content">
-					<!-- RSA Public Key -->
-					<section id="tm-section-1"  class="tm-section">
+					
+					<!-- Welcome section -->
+					<section id="tm-section-1" class="tm-section">
 						<div class="ml-auto">
-							<header class="mb-4"><h1 class="tm-text-shadow">RSA Cryptosystem Public Key</h1></header>
+							<header class="mb-4"><h1 class="tm-text-shadow">Welcome</h1></header>
 							<p class="mb-5 tm-font-big">
-								Message me securely at <a href="mailto:nathanieljwise@protonmail.com">nathanieljwise@protonmail.com</a> by following these steps:
-								<ul>
-									<li>
-										Encrypt your message using my <a href="public_key.pem" target="_blank">public key</a>.
-										<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<code>openssl rsautl -encrypt -pubin -inkey public_key.pem -in unencrypted.txt -out myMessage.enc</code>
-									</li><br />
-									
-									<li>Generate a hash of your encrypted message:
-										<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<code>openssl dgst -sha256 -binary myMessage.enc > myMessage_enc.hash</code>
-									</li><br />
-
-									<li>Send your encrypted message <code>myMessage.enc</code> and its hash <code>myMessage_enc.hash</code> to the secure email address above.
-									</li><br />
-
-									<li>
-										I'll hash the encrypted message I received from you, and verify my hash against yours.
-										<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<code>openssl dgst -sha256 -binary myMessage.enc > received_myMessage_enc.hash</code>
-
-										<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<code>diff -s myMessage_enc.hash received_myMessage_enc.hash</code>
-									</li><br />
-
-									<li>
-										Finally, I'll decrypt your message.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<code>openssl rsautl -decrypt -inkey private_key.pem -in myMessage.enc -out decrypted.txt</code>
-									</li><br />
-								</ul>
+								This site is self-hosted on a Synology DS220j running DSM 7. It's a good starting point 
+								since it was already in place and fairly straightforward to set up; in the future, I may 
+								migrate to a Raspberry Pi or some other setup to allow additional features I have in 
+								mind.
 							</p>
-							<p>
-								<code>
-									-----BEGIN PUBLIC KEY-----<br />
-									MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAsurVmRQBTviqVMKfPPp2<br />
-									FuUpDs5qKaDmBFrGplzvHFPVwFu7UG+n/ouWETMM8AEvwjXFel9RzHxbIFi0+lqN<br />
-									nmG95sAQrlWEPo9OS6IDISz06x3eDdhsgP69Q/RktG+erTPL77uRCvrcnsIGFAGo<br />
-									tBouREY57RzxNOcLV+B+wWOmro3FXF4X4+QQH5veAGU6ICymJ45bpbpCkIAY02Rq<br />
-									W85lLUKtRiMk1wAlSRJvZtSAhHs6FMFc01iAcoPG40S78lWwLIWSk/QO9TinZGjr<br />
-									bF8dWiA/LKz4aJyQshU0YKFuUg8F5L95yFkMplRHCdQ7NpNuPSAPFg/+9s8NzDTa<br />
-									mO8kdqhfORAOLFEtBmGoP7DFZ8KLo8XqieubZsF577MJMx8mVbVt+VVDLZupFsiu<br />
-									sDo7zKqJH4hDmAMDVLF22Bwz7CaPLZAt0D+h1GQdXY9/aw0wTt+NC2Ij7Pf79x25<br />
-									ranIvC9H0SajGesiDWqbp91wIlt4kOOu/K6UwTdidaBPn/3o4d3oYJjkOtQdKjgO<br />
-									+L09fQnBgP/XkGSOLY7KOCXTib3L+bk+864ApcGKeM1fNn0hVySUXHIMls7FYKoV<br />
-									QZs5FUzz4okmIs3/2BwsBlu00jkkSQPdv/jGTtkHVNJ/aYbEvqWqtrMOAbz/Yu/p<br />
-									fpFZcbjBDgzeDLPw/Y7Ch+kCAwEAAQ==<br />
-									-----END PUBLIC KEY-----
-								</code><br />
+							<p class="mb-5 tm-font-big">
+								The website template is from <a href="https://www.tooplate.com/view/2102-constructive">Tooplate</a>, with very minor modifications by me. I had 
+								previously used a different, non-responsive HTML template but it was very dated and 
+								bland, so I made the switch to a more modern design. Background images are from 
+								<a href="https://unsplash.com/">Unsplash</a>.
 							</p>
 						</div>    		          	
 					</section>

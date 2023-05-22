@@ -1,117 +1,289 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
-<meta name="description" content="description"/>
-<meta name="keywords" content="keywords"/> 
-<meta name="author" content="author"/> 
-<link rel="stylesheet" type="text/css" href="style/default.css" media="screen"/>
-<title>Nathaniel Wise</title>
-</head>
+		<title>Nathaniel Wise</title>
+	<!--
+	Template 2102 Constructive
+	http://www.tooplate.com/view/2102-constructive
+	-->
 
-<!-- zero margin = wide layout -->
-<body style="margin: 0;">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
+		<link rel="stylesheet" href="css/fontawesome-all.min.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/magnific-popup.css"/>
+		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+		<link rel="stylesheet" href="css/tooplate-style.css">
 
-	<div class="container">
-		<div class="header">
-			<a href="index.html"><span>Nathaniel Wise</span></a>
+		<script>
+			var renderPage = true;
+			if (navigator.userAgent.indexOf('MSIE')!==-1 || navigator.appVersion.indexOf('Trident/') > 0) {
+				/* Microsoft Internet Explorer detected in. */
+				alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+				renderPage = false;
+			}
+		</script>
+	</head>
+
+	<body>
+		<!-- Loader -->
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+			<div class="loader-section section-left"></div>
+			<div class="loader-section section-right"></div>
 		</div>
-
-		<div class="stripes"></div> 
 		
-		<div class="nav">
-			<a href="index.html">Home</a>
-			<a href="about.html">About</a>
-			<a href="datascraping.html">Data collection efforts</a>
-			<div class="clearer"><span></span></div>
-		</div>
-		
-		<div class="stripes"><span></span></div>
+		<!-- Page Content -->
+		<div class="container-fluid tm-main">
+			<div class="row tm-main-row">
 
-		<div class="main">	
-			<div class="left">
-				<div class="content">
-						<p>
-							Message me securely at <a href="mailto:nathanieljwise@protonmail.com"><code>nathanieljwise@protonmail.com</code></a> by following these steps:<br />
-						</p>
-						<ul>
-							<li>
-								Encrypt your message using my <a href="assets/public_key.pem">public key</a>.<br />
-								&nbsp;&nbsp;<code>openssl rsautl -encrypt -pubin -inkey public_key.pem -in unencrypted.txt -out myMessage.enc</code>
-							</li><br />
-							<li>
-								Generate a hash of your encrypted message:<br />
-								&nbsp;&nbsp;<code>openssl dgst -sha256 -binary myMessage.enc > myMessage_enc.hash</code>
-							</li><br />
-							<li>
-								Send your encrypted message <code>myMessage.enc</code> and its hash <code>myMessage_enc.hash</code> to the secure email address above.<br />
-							</li><br />
-							<li>
-								I'll hash the encrypted message I received from you, and verify my hash against yours.<br />
-								&nbsp;&nbsp;<code>openssl dgst -sha256 -binary myMessage.enc > received_myMessage_enc.hash</code><br />
-								&nbsp;&nbsp;<code>diff -s myMessage_enc.hash received_myMessage_enc.hash</code>
-							</li><br />
-							<li>
-								Finally, I'll decrypt your message.<br />
-								&nbsp;&nbsp;<code>openssl rsautl -decrypt -inkey private_key.pem -in myMessage.enc -out decrypted.txt</code>
-							</li>
-						</ul>
-						
+				<!-- Sidebar -->
+				<div id="tmSideBar" class="col-xl-3 col-lg-4 col-md-12 col-sm-12 sidebar">
 
-					<p>
-						<code>
-						-----BEGIN PUBLIC KEY-----<br />
-							MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAsurVmRQBTviqVMKfPPp2&nbsp;<br />
-							&nbsp;FuUpDs5qKaDmBFrGplzvHFPVwFu7UG+n/ouWETMM8AEvwjXFel9RzHxbIFi0+lqN&nbsp;<br />
-							&nbsp;nmG95sAQrlWEPo9OS6IDISz06x3eDdhsgP69Q/RktG+erTPL77uRCvrcnsIGFAGo&nbsp;<br />
-							&nbsp;tBouREY57RzxNOcLV+B+wWOmro3FXF4X4+QQH5veAGU6ICymJ45bpbpCkIAY02Rq&nbsp;<br />
-							&nbsp;W85lLUKtRiMk1wAlSRJvZtSAhHs6FMFc01iAcoPG40S78lWwLIWSk/QO9TinZGjr&nbsp;<br />
-							&nbsp;bF8dWiA/LKz4aJyQshU0YKFuUg8F5L95yFkMplRHCdQ7NpNuPSAPFg/+9s8NzDTa&nbsp;<br />
-							&nbsp;mO8kdqhfORAOLFEtBmGoP7DFZ8KLo8XqieubZsF577MJMx8mVbVt+VVDLZupFsiu&nbsp;<br />
-							&nbsp;sDo7zKqJH4hDmAMDVLF22Bwz7CaPLZAt0D+h1GQdXY9/aw0wTt+NC2Ij7Pf79x25&nbsp;<br />
-							&nbsp;ranIvC9H0SajGesiDWqbp91wIlt4kOOu/K6UwTdidaBPn/3o4d3oYJjkOtQdKjgO&nbsp;<br />
-							&nbsp;+L09fQnBgP/XkGSOLY7KOCXTib3L+bk+864ApcGKeM1fNn0hVySUXHIMls7FYKoV&nbsp;<br />
-							&nbsp;QZs5FUzz4okmIs3/2BwsBlu00jkkSQPdv/jGTtkHVNJ/aYbEvqWqtrMOAbz/Yu/p&nbsp;<br />
-							&nbsp;fpFZcbjBDgzeDLPw/Y7Ch+kCAwEAAQ==&nbsp;<br />
-						-----END PUBLIC KEY-----
-					</code><br />
-					</p>
+					<button id="tmMainNavToggle" class="menu-icon">&#9776;</button>
+
+					<div class="inner">
+						<nav id="tmMainNav" class="tm-main-nav">
+							<ul>
+								<li> <!-- https://unsplash.com/photos/xyuYk9oLA8I -->
+									<a href="index.html" id="tmNavLink1" class="scrolly active" data-bg-img="samuel-scalzo-xyuYk9oLA8I-unsplash.jpg" data-page="#tm-section-1">
+										<i class="fas fa-home tm-nav-fa-icon"></i>
+										<span>Welcome</span>
+									</a>
+								</li>					
+								<li> <!-- https://unsplash.com/photos/u34JNBOIQ10 -->
+									<a href="rsa.html" class="scrolly" data-bg-img="adrien-olichon-u34JNBOIQ10-unsplash.jpg" data-page="#tm-section-2">
+										<i class="fas fa-key tm-nav-fa-icon"></i>
+										<span>Public Key</span>
+									</a>
+								</li>
+								<li> <!-- https://unsplash.com/photos/5EoWFa_Htdo -->
+									<a href="about" id="tmNavLink2" class="scrolly" data-bg-img="lou-batier-5EoWFa_Htdo-unsplash.jpg" data-page="#tm-section-3" data-page-type="carousel">
+										<i class="fas fa-map tm-nav-fa-icon"></i>
+										<span>About</span>
+									</a>
+								</li>	
+
+								<!-- <li> https://unsplash.com/photos/LTyIEaF6XYk
+									<a href="#contact" class="scrolly" data-bg-img="pontus-wellgraf-LTyIEaF6XYk-unsplash.jpg" data-page="#tm-section-4">
+										<i class="fas fa-comments tm-nav-fa-icon"></i>
+										<span>Contact Us</span>
+									</a>
+								</li> -->
+							</ul>
+						</nav>
+					</div>
 				</div>
 
-			</div>
-
-			<div class="clearer"><span></span></div>
-
-		</div>
-
-		<div class="footer">
-<!-- 		
-			<div class="col3">
-
-				<h2>Links</h2>
-				<ul>
-					<li><a href="https://github.com/nathanieljwise?tab=repositories">GitHub</a></li>
-					<li><a href="https://twitter.com/nathanieljwise">Twitter</a></li>
-					<li><a href="https://www.linkedin.com/in/nathanielwise">LinkedIn</a></li>
-				</ul>
-
-			</div> -->
-
-			<div class="bottom">
+				<div class="col-xl-9 col-lg-8 col-md-12 col-sm-12 tm-content">
 					
-				<span class="left">&copy; 2022 <a href="index.html">Nathaniel Wise</a>. Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &amp; <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.</span>
-				<span class="right">Template design by <a href="http://templates.arcsin.se">Arcsin</a></span>
+					<!-- Welcome section -->
+					<section id="tm-section-1" class="tm-section">
+						<div class="ml-auto">
+							<header class="mb-4"><h1 class="tm-text-shadow">RSA Cryptosystem</h1></header>
+							<p class="mb-5 tm-font-big">
+								Message me securely at <a href="mailto:nathanieljwise@protonmail.com">nathanieljwise@protonmail.com</a> by following these steps:
+								<ul>
+									<li>
+										Encrypt your message using my public key.
+										<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>openssl rsautl -encrypt -pubin -inkey public_key.pem -in unencrypted.txt -out myMessage.enc</code>
+									</li><br />
+									<li>Generate a hash of your encrypted message:
+										<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>openssl dgst -sha256 -binary myMessage.enc > myMessage_enc.hash</code>
+									</li>
+								</ul>
+							</p>
+						</div>    		          	
+					</section>
 
-				<div class="clearer"><span></span></div>
-
+				</div>	<!-- .tm-content -->							
+					<footer class="footer-link">
+						<div class="tm-copyright-text">Copyright &copy; 2023 Nathaniel Wise. Design by <a href="https://www.tooplate.com/view/2102-constructive">Tooplate</a>.</div>
+					</footer>
+				</div>	<!-- row -->			
 			</div>
+			<div id="preload-01"></div>
+			<div id="preload-02"></div>
+			<div id="preload-03"></div>
+			<div id="preload-04"></div>
 
-		</div>
+			<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+			<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+			<script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+			<script type="text/javascript" src="slick/slick.min.js"></script> <!-- Slick Carousel -->
 
-	</div>
+			<script>
 
-</body>
+			var sidebarVisible = false;
+			var currentPageID = "#tm-section-1";
 
+			// Setup Carousel
+			function setupCarousel() {
+
+				// If current page isn't Carousel page, don't do anything.
+				if($('#tm-section-2').css('display') == "none") {
+				}
+				else {	// If current page is Carousel page, set up the Carousel.
+
+					var slider = $('.tm-img-slider');
+					var windowWidth = $(window).width();
+
+					if (slider.hasClass('slick-initialized')) {
+						slider.slick('destroy');
+					}
+
+					if(windowWidth < 640) {
+						slider.slick({
+							dots: true,
+							infinite: false,
+							slidesToShow: 1,
+							slidesToScroll: 1
+						});
+					}
+					else if(windowWidth < 992) {
+						slider.slick({
+							dots: true,
+							infinite: false,
+							slidesToShow: 2,
+							slidesToScroll: 1
+						});
+					}
+					else {
+						// Slick carousel
+						slider.slick({
+							dots: true,
+							infinite: false,
+							slidesToShow: 3,
+							slidesToScroll: 2
+						});
+					}
+
+					// Init Magnific Popup
+					$('.tm-img-slider').magnificPopup({
+					delegate: 'a', // child items selector, by clicking on it popup will open
+					type: 'image',
+					gallery: {enabled:true}
+					// other options
+					});
+				}
+			}
+
+			// Setup Nav
+			function setupNav() {
+				// Add Event Listener to each Nav item
+				$(".tm-main-nav a").click(function(e){
+					e.preventDefault();
+					
+					var currentNavItem = $(this);
+					changePage(currentNavItem);
+					
+					setupCarousel();
+					setupFooter();
+
+					// Hide the nav on mobile
+					$("#tmSideBar").removeClass("show");
+				});	    
+			}
+
+			function changePage(currentNavItem) {
+				// Update Nav items
+				$(".tm-main-nav a").removeClass("active");
+				currentNavItem.addClass("active");
+
+				$(currentPageID).hide();
+
+				// Show current page
+				currentPageID = currentNavItem.data("page");
+				$(currentPageID).fadeIn(1000);
+
+				// Change background image
+				var bgImg = currentNavItem.data("bgImg");
+				$.backstretch("img/" + bgImg);		    	
+			}
+
+			// Setup Nav Toggle Button
+			function setupNavToggle() {
+
+				$("#tmMainNavToggle").on("click", function(){
+					$(".sidebar").toggleClass("show");
+				});
+			}
+
+			// If there is enough room, stick the footer at the bottom of page content.
+			// If not, place it after the page content
+			function setupFooter() {
+				
+				var padding = 100;
+				var footerPadding = 40;
+				var mainContent = $("section"+currentPageID);
+				var mainContentHeight = mainContent.outerHeight(true);
+				var footer = $(".footer-link");
+				var footerHeight = footer.outerHeight(true);
+				var totalPageHeight = mainContentHeight + footerHeight + footerPadding + padding;
+				var windowHeight = $(window).height();		
+
+				if(totalPageHeight > windowHeight){
+					$(".tm-content").css("margin-bottom", footerHeight + footerPadding + "px");
+					footer.css("bottom", footerHeight + "px");  			
+				}
+				else {
+					$(".tm-content").css("margin-bottom", "0");
+					footer.css("bottom", "20px");  				
+				}  			
+			}
+
+			// Everything is loaded including images.
+			$(window).on("load", function(){
+
+				// Render the page on modern browser only.
+				if(renderPage) {
+					// Remove loader
+					$('body').addClass('loaded');
+
+					// Page transition
+					var allPages = $(".tm-section");
+
+					// Handle click of "Continue", which changes to next page
+					// The link contains data-nav-link attribute, which holds the nav item ID
+					// Nav item ID is then used to access and trigger click on the corresponding nav item
+					var linkToAnotherPage = $("a.tm-btn[data-nav-link]");
+					
+					if(linkToAnotherPage != null) {
+						
+						linkToAnotherPage.on("click", function(){
+							var navItemToHighlight = linkToAnotherPage.data("navLink");
+							$("a" + navItemToHighlight).click();
+						});
+					}
+					
+					// Hide all pages
+					allPages.hide();
+
+					$("#tm-section-1").fadeIn();
+
+					// Set up background first page
+					var bgImg = $("#tmNavLink1").data("bgImg");
+					
+					$.backstretch("img/" + bgImg, {fade: 500});
+
+					// Setup Carousel, Nav, and Nav Toggle
+					setupCarousel();
+					setupNav();
+					setupNavToggle();
+					setupFooter();
+
+					// Resize Carousel upon window resize
+					$(window).resize(function() {
+						setupCarousel();
+						setupFooter();
+					});
+				}	      	
+			});
+
+			</script>
+	</body>
 </html>

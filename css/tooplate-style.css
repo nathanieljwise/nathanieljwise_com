@@ -25,7 +25,7 @@ body {
 
 ul { margin: 0; padding: 0; }
 
-a, button { transition: all 0.3s ease; }
+/* a, button { transition: all 0.3s ease; } */
 button:focus { outline: none; }
 a:focus {
 	text-decoration: none;
@@ -365,10 +365,10 @@ footer a { color: white; }
         height: auto;
         left: -300px;
         transition: all .3s ease-in-out;
-        -webkit-transition: all .3s ease-in-out;
+        /* -webkit-transition: all .3s ease-in-out;
         -moz-transition: all .3s ease-in-out;
         -ms-transition: all .3s ease-in-out;
-        -o-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out; */
     }
 
     #tmSideBar.show { left: 0; }
@@ -439,7 +439,7 @@ footer a { color: white; }
     margin: -75px 0 0 -75px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #3498db;
+    border-top-color: #222222;
 
     -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
@@ -456,7 +456,7 @@ footer a { color: white; }
     bottom: 5px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #e74c3c;
+    border-top-color: #CCCCCC;
 
     -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
@@ -471,7 +471,7 @@ footer a { color: white; }
     bottom: 15px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #f9c922;
+    border-top-color: #808080;
 
     -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
       animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
@@ -528,8 +528,8 @@ footer a { color: white; }
         -ms-transform: translateX(-100%);  /* IE 9 */
             transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
 
-    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  
-            transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    /* -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  
+            transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000); */
 }
 
 .loaded #loader-wrapper .loader-section.section-right {
@@ -537,14 +537,14 @@ footer a { color: white; }
         -ms-transform: translateX(100%);  /* IE 9 */
             transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
 
--webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  
-    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+/* -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000); */
 }
 
 .loaded #loader {
     opacity: 0;
-    -webkit-transition: all 0.3s ease-out;  
-            transition: all 0.3s ease-out;
+    /* -webkit-transition: all 0.3s ease-out;  
+            transition: all 0.3s ease-out; */
 }
 .loaded #loader-wrapper {
     visibility: hidden;
@@ -553,11 +553,14 @@ footer a { color: white; }
         -ms-transform: translateY(-100%);  /* IE 9 */
             transform: translateY(-100%);  /* Firefox 16+, IE 10+, Opera */
 
-    -webkit-transition: all 0.3s 1s ease-out;  
-            transition: all 0.3s 1s ease-out;
+    /* -webkit-transition: all 0.3s 1s ease-out;  
+            transition: all 0.3s 1s ease-out; */
 }
 
 /* JavaScript Turned Off */
 .no-js #loader-wrapper {
     display: none;
 }
+
+/* My additions */
+.github-icon, .twitter-icon, .linkedin-icon { font-size: 30px; }

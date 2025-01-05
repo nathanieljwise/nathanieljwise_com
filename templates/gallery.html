@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="carousel-container">
+    <button class="carousel-button left" onclick="prevImage()">
+        <i class="fas fa-caret-left"></i>
+    </button>
+    <div class="carousel-images" id="carousel-images">
+        <img src="{{ url_for('static', filename='img/image1.jpg') }}" alt="Image 1">
+        <img src="{{ url_for('static', filename='img/image2.jpg') }}" alt="Image 2">
+        <img src="{{ url_for('static', filename='img/image3.jpg') }}" alt="Image 3">
+    </div>
+    <button class="carousel-button right" onclick="nextImage()">
+        <i class="fas fa-caret-right"></i>
+    </button>
+</div>
+{% endblock %}
+
+{% block extra_styles %}
+<style>
+    body {
+        background-image: url('/static/img/gallery_bg.jpg');
+    }
+</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/carousel.css') }}">
+<script>
+    let currentIndex = 0;
+
+    function showImage(index) {
+        const carousel = document.getElementById('carousel-images');
+        const totalImages = carousel.children.length;
+        if (index >= totalImages) currentIndex = 0;
+        else if (index < 0) currentIndex = totalImages - 1;
+        else currentIndex = index;
+        const offset = -currentIndex * 100; // Adjust offset to show the correct image
+        carousel.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextImage() {
+        showImage(currentIndex + 1);
+    }
+
+    function prevImage() {
+        showImage(currentIndex - 1);
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,104 @@
+body {
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	font-weight: 200;
+    margin: 0;
+    padding: 0;
+    color: #d3d3d3;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.main-content {
+    margin-left: 20vw;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main-content p {
+    width: 60vw;
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+.sidebar {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: xx-large;
+    height: 100%;
+    width: 20vw;
+    position: fixed;
+    padding: 20px 0;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li a {
+    color: #a5a5a5;
+    text-decoration: none;
+    display: block;
+    padding: 15px 20px;
+}
+
+.sidebar ul li a i {
+    width: 30px; /* Consistent width for icons */
+    text-align: center;
+    margin-right: 8px;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: rgba(66, 66, 66, 0.50);
+}
+
+.sidebar ul li a:hover i {
+    color: #000000;
+}
+
+footer {
+    text-align: left;
+    padding: 10px 10px;
+    color: #d3d3d3;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+header {
+    text-align: center;
+    padding: 10px 0;
+}
+
+header h1, footer p {
+    margin: 0;
+}
+
+a {	color: #AAA; }
+
+a:hover { color: #33ccff; }
+
+.code {
+    background: rgba(13, 13, 13, 0.75);
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15px 20px;
+}

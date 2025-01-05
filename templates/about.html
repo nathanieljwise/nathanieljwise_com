@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+                <header><h1>Welcome</h1></header>
+                <p>
+                    This website is powered by Flask and hosted on a Raspberry Pi using Apache 
+                    and WSGI. Simple full stack web development is a longstanding hobby of 
+                    mine, and this site reflects that.
+                </p>
+                <p>
+                    HTML and CSS by me; photos from <a href="https://unsplash.com/">Unsplash</a>.
+                </p>
+                {% endblock %}
+
+                {% block extra_styles %}
+                    <style>
+                        body {
+                            /* https://unsplash.com/photos/a-black-and-white-photo-of-a-building-xyuYk9oLA8I */
+                            background-image: url('/static/img/about_bg.jpg');
+                        }
+                    </style>
+{% endblock %}

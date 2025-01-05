@@ -1,0 +1,56 @@
+.carousel-container {
+    width: 80%;
+    height: auto; /* Maintain flexibility */
+    max-height: 70vh; 
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-images img {
+    max-width: 50%; /* Ensure image doesn't exceed container width */
+    height: auto; /* Allow height to adjust based on aspect ratio */
+    object-fit: contain; /* Maintain aspect ratio and prevent distortion */
+    margin: 0; 
+    display: block;
+  }
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.carousel-button.left {
+    left: 10px;
+}
+
+.carousel-button.right {
+    right: 10px;
+}
+
+.carousel-button i {
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.carousel-button:hover {
+    background: rgba(255, 255, 255, 0.8);
+}

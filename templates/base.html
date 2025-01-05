@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathaniel Wise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="/rsa"><i class="fas fa-key"></i> Public Keys</a></li>
+                    <li><a href="/gallery"><i class="fas fa-camera"></i> Gallery</a></li>
+                    <li><a href="/about"><i class="fas fa-info"></i> About</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <main>
+                {% block content %}{% endblock %}
+            </main>
+                {% block extra_styles %}{% endblock %}
+            <footer>
+                <p>&copy; 2024 Nathaniel Wise</p>
+            </footer>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,56 +1,71 @@
 .carousel-container {
-    width: 80%;
-    height: auto; /* Maintain flexibility */
-    max-height: 70vh; 
-    margin: 50px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  .carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .carousel-images img {
-    max-width: 50%; /* Ensure image doesn't exceed container width */
-    height: auto; /* Allow height to adjust based on aspect ratio */
-    object-fit: contain; /* Maintain aspect ratio and prevent distortion */
-    margin: 0; 
-    display: block;
-  }
+  position: relative;
+  width: 85%;
+  height: 85%;
+  margin: auto;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+  max-width: 100%;
+}
+
+.carousel-images img {
+  flex: 0 0 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  object-fit: contain;
+  display: block;
+}
 
 .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.5);
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10;
-}
-
-.carousel-button.left {
-    left: 10px;
-}
-
-.carousel-button.right {
-    right: 10px;
-}
-
-.carousel-button i {
-    font-size: 1.5rem;
-    color: #000;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .carousel-button:hover {
-    background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+/* Optional styling for icons */
+.carousel-button i {
+  font-size: 1.5rem;
+}
+
+.carousel-captions {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  font-size: 1rem;
+  position: relative;
+  bottom: 10px;
+  margin-top: -20px;
+  z-index: 5;
+  width: 100%;
 }

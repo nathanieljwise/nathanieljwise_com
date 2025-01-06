@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="error-page">
+        <h1>404 - Page Not Found</h1>
+        <p>Oops! The page you're looking for doesn't exist or has been moved.</p>
+        <p><a href="/">Return to Home</a> or use the navigation menu to find what you're looking for.</p>
+        <p><i class="fas fa-frown"></i> Sorry for the inconvenience!</p>
+    </div>
+{% endblock %}
+
+{% block extra_styles %}
+    <style>
+        .error-page {
+            text-align: center;
+            margin: 50px auto;
+        }
+        .error-page h1 {
+            font-size: 3rem;
+            color: #ff6b6b;
+        }
+        .error-page p {
+            font-size: 1.2rem;
+        }
+        .error-page a {
+            color: #33ccff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .error-page a:hover {
+            color: #ff6b6b;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>Below is a detailed list of courses. Click to expand and view the table.</p>
+<details>
+    <summary>Course List</summary>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Course Number</th>
+                <th>Title</th>
+                <th>Course Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>RUSS 101</td>
+                <td>Basic Russian I</td>
+                <td></td>
+            </tr>
+            <tr>
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                </td>
+            </tr>
+            <tr>
+                <td>CMSC 201</td>
+                <td>Computer Science I</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 202</td>
+                <td>Computer Science II</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 203</td>
+                <td>Discrete Structures</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>MATH 221</td>
+                <td>Introduction to Linear Algebra</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 304</td>
+                <td>Ethical Issues in Information Technology</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 341</td>
+                <td>Data Structures</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 313</td>
+                <td>Computer Organization & Assembly Language Programming</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 331</td>
+                <td>Principles of Programming Language</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>STAT 355</td>
+                <td>Intro to Probability & Statistics for Scientists & Engineers</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 441</td>
+                <td>Design & Analysis of Algorithms</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 421</td>
+                <td>Principles of Operating Systems</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 426</td>
+                <td>Principles of Computer Security</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 481</td>
+                <td>Computer Networks</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 411</td>
+                <td>Computer Architecture</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 447</td>
+                <td>Software Engineering I</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 449</td>
+                <td>Malware Analysis</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 487</td>
+                <td>Introduction To Network Security</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>CMSC 491</td>
+                <td>Seminar in Active Cyberdefense</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</details>
+{% endblock %}
+
+{% block extra_styles %}
+<style>
+    body {
+        /* https://unsplash.com/photos/black-and-gray-staircase-K9QHL52rE2k */
+        background-image: url('/static/img/experience_bg.jpg');
+    }
+
+    table {
+        width: 100%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+        color: #d3d3d3;
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    th, td {
+        border: 2px solid #333;
+        padding: 10px 15px;
+        text-align: justify;
+    }
+
+    th {
+        background-color: rgba(66, 66, 66, 0.8);
+        font-weight: bold;
+        color: #fff;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgba(66, 66, 66, 0.5);
+    }
+
+    tr:hover {
+        background-color: rgba(66, 66, 66, 0.75);
+        color: #fff;
+    }
+
+    td[colspan="2"] {
+        background-color: rgba(66, 66, 66, 0.5);
+    }
+
+    details {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: #d3d3d3;
+    margin: 20px auto;
+    width: 80%;
+}
+
+details[open] summary {
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+summary {
+    cursor: pointer;
+    padding: 10px;
+    background: rgba(66, 66, 66, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+summary:hover {
+    background: rgba(66, 66, 66, 0.8);
+}
+
+table {
+    margin-top: 0px;
+}
+
+</style>
+{% endblock %}

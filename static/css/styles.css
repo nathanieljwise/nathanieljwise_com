@@ -1,7 +1,7 @@
 body {
-	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-	font-size: 20px;
-	font-weight: 200;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 200;
     margin: 0;
     padding: 0;
     color: #d3d3d3;
@@ -12,39 +12,38 @@ body {
 }
 
 .wrapper {
+    display: flex;
+    flex-direction: row;
     height: 100%;
     width: 100%;
-    position: relative;
 }
 
 .main-content {
+    flex-grow: 1;
     margin-left: 20vw;
     display: flex;
     flex-direction: column;
     height: 100vh;
-}
-
-.main-content p {
-    width: 60vw;
-}
-
-main {
-    flex-grow: 1;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
 }
 
+.main-content p {
+    width: 75vw;
+}
+
 .sidebar {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     font-weight: bold;
-    font-size: xx-large;
+    font-size: 1.2em;
     height: 100%;
     width: 20vw;
     position: fixed;
     padding: 20px 0;
     box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
     background: rgba(255, 255, 255, 0.06);
+    overflow-y: auto;
 }
 
 .sidebar nav ul {
@@ -53,16 +52,22 @@ main {
     margin: 0;
 }
 
+.sidebar nav ul li {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
 .sidebar nav ul li a {
     color: #a5a5a5;
     text-decoration: none;
     display: block;
-    padding: 15px 20px;
+    padding: 10px 20px;
+    word-wrap: break-word;
 }
 
 .sidebar ul li a i {
-    width: 30px; /* Consistent width for icons */
-    text-align: center;
+    width: 30px;
+    text-align: left;
     margin-right: 8px;
 }
 
@@ -75,7 +80,7 @@ main {
 }
 
 footer {
-    text-align: left;
+    text-align: center;
     padding: 10px 10px;
     color: #d3d3d3;
     width: 100%;
@@ -93,12 +98,73 @@ header h1, footer p {
     margin: 0;
 }
 
-a {	color: #AAA; }
+a {
+    color: #AAA;
+}
 
-a:hover { color: #33ccff; }
+a:hover {
+    color: #33ccff;
+}
 
 .code {
     background: rgba(13, 13, 13, 0.75);
     font-family: 'Courier New', Courier, monospace;
     padding: 15px 20px;
+}
+
+/* Responsive Design */
+
+/* For screens less than 850px */
+@media (max-width: 850px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        text-align: left;
+    }
+
+    .sidebar nav ul li {
+        display: inline-block;
+        margin: 0;
+    }
+
+    .sidebar nav ul li a {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+        height: auto;
+    }
+
+    footer {
+        position: relative;
+        text-align: center;
+    }
+}
+
+/* For screens less than 480px */
+@media (max-width: 500px) {
+    .sidebar nav ul li {
+        display: block;
+    }
+
+    .sidebar nav ul li a {
+        font-size: 0.8em;
+        padding: 8px;
+    }
+
+    main {
+        padding: 5px;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
 }

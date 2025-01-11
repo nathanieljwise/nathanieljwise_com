@@ -52,7 +52,6 @@
   right: 10px;
 }
 
-/* Optional styling for icons */
 .carousel-button i {
   font-size: 1.5rem;
 }
@@ -68,4 +67,46 @@
   margin-top: -20px;
   z-index: 5;
   width: 100%;
+}
+
+/* Responsive Design */
+
+/* For screens smaller than 850px */
+@media (max-width: 850px) {
+  .carousel-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-images img {
+    max-height: 50vh;
+  }
+
+  .carousel-button {
+    padding: 8px;
+  }
+
+  .carousel-button i {
+    font-size: 1.2rem;
+  }
+}
+
+/* For screens smaller than 480px */
+@media (max-width: 480px) {
+  .carousel-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-images img {
+    max-height: 40vh;
+  }
+
+  .carousel-button {
+    padding: 6px;
+  }
+
+  .carousel-button i {
+    font-size: 1rem;
+  }
 }

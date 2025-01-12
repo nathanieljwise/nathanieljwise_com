@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     font-size: 20px;
@@ -95,7 +99,8 @@ header {
     padding: 10px 0;
 }
 
-header h1, footer p {
+header h1,
+footer p {
     margin: 0;
 }
 
@@ -118,14 +123,14 @@ a:hover {
 
 /* Responsive Design */
 
-@media (max-width: 850px) {
+@media (max-width: 768px) {
     .wrapper {
         flex-direction: column;
     }
 
     .sidebar {
         width: 100%;
-        max-height: 10vh;
+        max-height: 13vh;
         position: relative;
         text-align: left;
     }
@@ -152,7 +157,7 @@ a:hover {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
     .sidebar nav ul li {
         display: block;
     }

@@ -4,10 +4,34 @@
 				<header><h1>Public Key Cryptography</h1></header>
 				<p>
 					You can message me securely at <a href="mailto:nathanieljwise@protonmail.com">nathanieljwise@protonmail.com</a> by
-					encrypting your message using OpenSSL and one of my public keys: either <a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.pem') }}" target="_blank">RSA</a> 
-					or <a href="{{ url_for('static', filename='NathanielMainECCPublicKey.pem') }}" target="_blank">ECC</a>. Send your message and 
-					its SHA256 hash to the secure email address above; I'll hash the encrypted message, verify my 
+					encrypting your message using OpenSSL and one of my public keys: either 
+					<a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.pem') }}" target="_blank">RSA</a> or 
+					<a href="{{ url_for('static', filename='NathanielMainECCPublicKey.pem') }}" target="_blank">ECC</a>. 
+					Send your message and its SHA256 hash to the secure email address above; I'll hash the encrypted message, verify my 
 					hash against yours, and decrypt the message.<br />
+				</p>
+				<p>
+					Each key is also available as an x509 certificate:
+					<ul>
+						<li>
+							<a href="{{ url_for('static', filename='Nathanielx509RSA.crt') }}" target="_blank">RSA x509</a>
+							<ul>
+								<li>
+									<a href="{{ url_for('static', filename='Nathanielx509RSA.hash') }}" target="_blank">Hash</a>:
+									7c6458f41f184a233ff3f6630a6e6bc9cfbfe78d38283fff066a78815fc69f78
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="{{ url_for('static', filename='Nathanielx509ECC.crt') }}" target="_blank">ECC x509</a>
+						</li>
+						<ul>
+							<li>
+								<a href="{{ url_for('static', filename='Nathanielx509ECC.hash') }}" target="_blank">Hash</a>:
+								de9eb59b13bc9b5ca4d09cd96a5e2c0f04261b028a360bf3e51fad5ffc552190
+							</li>
+						</ul>
+					</ul>
 				</p>
 
 				<p class="code">

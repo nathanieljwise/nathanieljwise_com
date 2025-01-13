@@ -27,7 +27,7 @@ body {
     margin-left: 20vw;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow-y: auto;

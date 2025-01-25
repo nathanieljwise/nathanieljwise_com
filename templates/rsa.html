@@ -1,81 +1,95 @@
 {% extends 'base.html' %}
 
 {% block content %}
-				<header><h1>Public Key Cryptography</h1></header>
-				<p>
-					You can message me securely at <a href="mailto:nathanieljwise@protonmail.com">nathanieljwise@protonmail.com</a> by
-					encrypting your message using OpenSSL and one of my public keys: either 
-					<a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.pem') }}" target="_blank">RSA</a> or 
-					<a href="{{ url_for('static', filename='NathanielMainECCPublicKey.pem') }}" target="_blank">ECC</a>. 
-					Send your message and its SHA256 hash to the secure email address above; I'll hash the encrypted message, verify my 
-					hash against yours, and decrypt the message.<br />
-				</p>
-				<p>
-					Each key is also available as an x509 certificate:
-					<ul>
-						<li>
-							<a href="{{ url_for('static', filename='Nathanielx509RSA.crt') }}" target="_blank">RSA x509</a>
-							<ul>
-								<li>
-									<a href="{{ url_for('static', filename='Nathanielx509RSA.hash') }}" target="_blank">Hash</a>:&nbsp;7c6458f41f184a233ff3f6630a6e6bc9cfbfe78d38283fff066a78815fc69f78
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="{{ url_for('static', filename='Nathanielx509ECC.crt') }}" target="_blank">ECC x509</a>
-						</li>
-						<ul>
-							<li>
-								<a href="{{ url_for('static', filename='Nathanielx509ECC.hash') }}" target="_blank">Hash</a>:&nbsp;de9eb59b13bc9b5ca4d09cd96a5e2c0f04261b028a360bf3e51fad5ffc552190
-							</li>
-						</ul>
-					</ul>
-				</p>
+<header>
+	<h1>Public Key Cryptography</h1>
+</header>
+<p>
+	You can message me securely at <a
+		href="mailto:nathanieljwise@protonmail.com">nathanieljwise@protonmail.com</a> by
+	encrypting your message using OpenSSL and one of my public keys: either
+	<a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.pem') }}"
+		target="_blank">RSA</a> or
+	<a href="{{ url_for('static', filename='NathanielMainECCPublicKey.pem') }}"
+		target="_blank">ECC</a>.
+	Send your message and its SHA256 hash to the secure email address above; I'll hash the encrypted
+	message, verify my
+	hash against yours, and decrypt the message.<br />
+</p>
+<p>
+	Each key is also available as an x509 certificate:
+<ul>
+	<li>
+		<a href="{{ url_for('static', filename='Nathanielx509RSA.crt') }}" target="_blank">RSA
+			x509</a>
+		<ul>
+			<li>
+				<a href="{{ url_for('static', filename='Nathanielx509RSA.hash') }}"
+					target="_blank">Hash</a>:&nbsp;7c6458f41f184a233ff3f6630a6e6bc9cfbfe78d38283fff066a78815fc69f78
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="{{ url_for('static', filename='Nathanielx509ECC.crt') }}" target="_blank">ECC
+			x509</a>
+	</li>
+	<ul>
+		<li>
+			<a href="{{ url_for('static', filename='Nathanielx509ECC.hash') }}"
+				target="_blank">Hash</a>:&nbsp;de9eb59b13bc9b5ca4d09cd96a5e2c0f04261b028a360bf3e51fad5ffc552190
+		</li>
+	</ul>
+</ul>
+</p>
 
-				<p class="code">
-					<span style="font-family: 'Arial', sans-serif; font-weight: bold;">
-						4096 bit RSA:
-					</span>
-					<br /><br />
-					-----BEGIN PUBLIC KEY-----<br />
-					MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAwWV5MKhSRwUYpiOnztFj<br />
-					lDkreFrH33mMKy1a+eYKI4lAnLNvg54Bkg9oKZi/NBuxa7UI1opRCaFE13yvQCv2<br />
-					rNtqaoEoPp7/79nCpBsNub7Zd4Na5yZxT1xqOwJV0DYUdQ5MaYCMxfwe2QeTq/GH<br />
-					0dqNCY31NX1Mkz6RnB80DKGdj1iiFuVaOAn/hsepugmfA5AHJ75JHBw0XK4sxbUI<br />
-					sPVRBRk2rSVFxGCF8rNTbCRX5leG+i60eUqXXn+HsmpenFUpDUL5pWZg6t1Ql/jl<br />
-					rSVBL9EppmNyWP1e40jqXK2IpBXCXjnVnHCnn3JR7eCrqA44LBqSoraoK9I9m4ni<br />
-					dc884xaPEo7M+vhZuVF3MuGFc+JmhHUprquZPScFUOK2DBNMyJwrnetD0KV1wOFU<br />
-					jq5D3Y5UkPVNqYIsjn2YvowTpQgS0gBLn96T1cKP2ym+zakjPUmL6aZVa+DMco0J<br />
-					Bv04a5/BEEf4+QtUEp8bex4btHORLMTWDnet1oECk85ecro3/p5eFZDooO+MhvLj<br />
-					6p/A/pqnpt9Qi2Ur+ooXm/BwM8uHOUlQA3TEhRJ/SYL/WaCDCDh+fBn3dIbUTS63<br />
-					b30FWlu867CXLsDu49zAHJlMuTusoBcZQ8wAz+i2i2Ig7ugSqjE3MwgpiQ7lQntc<br />
-					LNZ3L9EMpkU8amTcLDqEJtUCAwEAAQ==<br />
-					-----END PUBLIC KEY-----<br />
-					<br />
-						<a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.hash') }}" target="_blank">SHA256 hash</a>: 878d0a33a0dc5d91a25f830c92f51e14ecaeb93d5da7a89edfa3c559ba6f1297
-					<br />
-				</p>
+<p class="code">
+	<span style="font-family: 'Arial', sans-serif; font-weight: bold;">
+		4096 bit RSA:
+	</span>
+	<br /><br />
+	-----BEGIN PUBLIC KEY-----<br />
+	MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAwWV5MKhSRwUYpiOnztFj<br />
+	lDkreFrH33mMKy1a+eYKI4lAnLNvg54Bkg9oKZi/NBuxa7UI1opRCaFE13yvQCv2<br />
+	rNtqaoEoPp7/79nCpBsNub7Zd4Na5yZxT1xqOwJV0DYUdQ5MaYCMxfwe2QeTq/GH<br />
+	0dqNCY31NX1Mkz6RnB80DKGdj1iiFuVaOAn/hsepugmfA5AHJ75JHBw0XK4sxbUI<br />
+	sPVRBRk2rSVFxGCF8rNTbCRX5leG+i60eUqXXn+HsmpenFUpDUL5pWZg6t1Ql/jl<br />
+	rSVBL9EppmNyWP1e40jqXK2IpBXCXjnVnHCnn3JR7eCrqA44LBqSoraoK9I9m4ni<br />
+	dc884xaPEo7M+vhZuVF3MuGFc+JmhHUprquZPScFUOK2DBNMyJwrnetD0KV1wOFU<br />
+	jq5D3Y5UkPVNqYIsjn2YvowTpQgS0gBLn96T1cKP2ym+zakjPUmL6aZVa+DMco0J<br />
+	Bv04a5/BEEf4+QtUEp8bex4btHORLMTWDnet1oECk85ecro3/p5eFZDooO+MhvLj<br />
+	6p/A/pqnpt9Qi2Ur+ooXm/BwM8uHOUlQA3TEhRJ/SYL/WaCDCDh+fBn3dIbUTS63<br />
+	b30FWlu867CXLsDu49zAHJlMuTusoBcZQ8wAz+i2i2Ig7ugSqjE3MwgpiQ7lQntc<br />
+	LNZ3L9EMpkU8amTcLDqEJtUCAwEAAQ==<br />
+	-----END PUBLIC KEY-----<br />
+	<br />
+	<a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.hash') }}"
+		target="_blank">SHA256 hash</a>:
+	878d0a33a0dc5d91a25f830c92f51e14ecaeb93d5da7a89edfa3c559ba6f1297
+	<br />
+</p>
 
-				<p class="code">
-					<span style="font-family: 'Arial', sans-serif; font-weight: bold;">
-						ECC with curve P-384:
-					</span>
-					<br /><br />
-					-----BEGIN PUBLIC KEY-----<br />
-					MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAE6rSiDx32tYhpsOYiTBFAOqW2DjpHPPHL<br />
-					0s0kYAqTNb/8k0t1jfQcy3hx2wmVg7IR83dp6vcXCaoEODNxGaZCk39ZR85Rz0Dc<br />
-					84yi+x+KQqsnWJ8jDy43b2blDWVsRKx0<br />
-					-----END PUBLIC KEY-----<br />
-					<br />
-					<a href="{{ url_for('static', filename='NathanielMainECCPublicKey.hash') }}" target="_blank">SHA256 hash</a>: 878d0a33a0dc5d91a25f830c92f51e14ecaeb93d5da7a89edfa3c559ba6f1297</code>
-				</p>
+<p class="code">
+	<span style="font-family: 'Arial', sans-serif; font-weight: bold;">
+		ECC with curve P-384:
+	</span>
+	<br /><br />
+	-----BEGIN PUBLIC KEY-----<br />
+	MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAE6rSiDx32tYhpsOYiTBFAOqW2DjpHPPHL<br />
+	0s0kYAqTNb/8k0t1jfQcy3hx2wmVg7IR83dp6vcXCaoEODNxGaZCk39ZR85Rz0Dc<br />
+	84yi+x+KQqsnWJ8jDy43b2blDWVsRKx0<br />
+	-----END PUBLIC KEY-----<br />
+	<br />
+	<a href="{{ url_for('static', filename='NathanielMainECCPublicKey.hash') }}"
+		target="_blank">SHA256 hash</a>:
+	878d0a33a0dc5d91a25f830c92f51e14ecaeb93d5da7a89edfa3c559ba6f1297</code>
+</p>
 {% endblock %}
 
 {% block extra_styles %}
-			<style>
-				body {
-					/* https://unsplash.com/photos/a-black-and-white-photo-of-a-tunnel-72aEtYlS5K0 */
-					background-image: url('/static/img/backgrounds/rsa_bg.jpg');
-				}
-			</style>
+<style>
+	body {
+		/* https://unsplash.com/photos/a-black-and-white-photo-of-a-tunnel-72aEtYlS5K0 */
+		background-image: url('/static/img/backgrounds/rsa_bg.jpg');
+	}
+</style>
 {% endblock %}f

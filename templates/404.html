@@ -1,44 +1,53 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="error-page">
-        <h1>404 - Page Not Found</h1>
-        <p>Oops! The page you're looking for doesn't exist or has been moved. </p>
-        <p><a href="/">Return to Home</a> or use the navigation menu to find what you're looking for.
-        Sorry for the inconvenience!</p>
-    </div>
+<div class="error-page">
+    <h1>404 - Page Not Found</h1>
+    <p>
+        Oops! The page you're looking for doesn't exist or has been moved.
+    </p>
+    <p>
+        <a href="/">Return to Home</a> or use the navigation menu to find what you're looking for.
+        Sorry for the inconvenience!
+    </p>
+</div>
 {% endblock %}
 
 {% block extra_styles %}
-    <style>
-        .sidebar nav ul li a {
-            color: #121212;
-        }
-        .error-page {
-            text-align: justify;
-            margin: 50px auto;
-        }
-        .error-page h1 {
-            font-size: 3rem;
-            color: #1d1d1d;
-        }
-        .error-page p {
-            font-size: 1.2rem;
-            color: #282828;
+<style>
+    .sidebar nav ul li a {
+        color: #121212;
+    }
 
-        }
-        .error-page a {
-            color: #000000;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .error-page a:hover {
-            color: #1d1d1d;
-        }
+    .error-page {
+        text-align: justify;
+        margin: 50px auto;
+    }
+
+    .error-page h1 {
+        font-size: 3rem;
+        color: #1d1d1d;
+    }
+
+    .error-page p {
+        font-size: 1.2rem;
+        color: #282828;
+
+    }
+
+    .error-page a {
+        color: #000000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .error-page a:hover {
+        color: #1d1d1d;
+    }
 
     body {
         /* https://unsplash.com/it/foto/alberi-verdi-coperti-di-nebbia-ROSpTQ49hWM */
         background-image: url('/static/img/backgrounds/404_bg.jpg');
     }
-    </style>
+</style>
 {% endblock %}

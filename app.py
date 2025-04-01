@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import time
 
 app = Flask(__name__)
 
@@ -21,6 +22,11 @@ def gallery():
 @app.route('/experience')
 def experience():
     return render_template('experience.html')
+
+@app.route('/printing')
+def printing():
+    now = time.time()
+    return render_template('printing.html', now=now)
 
 @app.errorhandler(404)
 def page_not_found(e):

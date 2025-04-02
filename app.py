@@ -23,10 +23,10 @@ def gallery():
 def experience():
     return render_template('experience.html')
 
-@app.route('/printing')
+@app.route('/nowprinting')
 def printing():
     now = time.time()
-    return render_template('printing.html', now=now)
+    return render_template('nowprinting.html', now=now)
 
 @app.errorhandler(404)
 def page_not_found(e):

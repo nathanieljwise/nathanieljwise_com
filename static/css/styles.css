@@ -49,6 +49,9 @@ body {
     box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
     background: rgba(255, 255, 255, 0.06);
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .sidebar nav ul {
@@ -82,6 +85,24 @@ body {
 
 .sidebar ul li a:hover i {
     color: #000000;
+}
+
+.sidebar-logo {
+    margin-top: auto;
+    text-align: left;
+    padding: 0.5rem 2;
+    margin-left: 2rem;
+}
+
+.sidebar-logo img {
+    max-width: 80px;
+    height: auto;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.sidebar-logo img:hover {
+    transform: scale(1.15);
 }
 
 footer {
@@ -133,6 +154,13 @@ a:hover {
         max-height: 13vh;
         position: relative;
         text-align: left;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+        padding: 1rem;
+
     }
 
     .sidebar nav ul li {
@@ -143,6 +171,10 @@ a:hover {
     .sidebar nav ul li a {
         font-size: 0.9em;
         padding: 10px;
+    }
+
+    .sidebar-logo img {
+        display: none;
     }
 
     .main-content {
@@ -165,6 +197,10 @@ a:hover {
     .sidebar nav ul li a {
         font-size: 0.8em;
         padding: 8px;
+    }
+
+    .sidebar-logo img {
+        display: none;
     }
 
     main {

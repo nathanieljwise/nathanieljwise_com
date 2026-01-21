@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+    <h1>Shortener Admin</h1>
+</header>
+
+<section>
+    <h2>Create Short URL</h2>
+    <form method="post" id="create-form">
+        <input type="text" name="url" placeholder="https://example.com" required style="width:300px;">
+        <button type="submit">Create</button>
+    </form>
+    <p id="create-message" style="color: green; display:none;"></p>
+</section>
+
+<section>
+    <h2>Existing Short URLs</h2>
+    <table id="links-table" border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>Short</th>
+                <th>Target</th>
+                <th>Clicks</th>
+                <th>Copy</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in links %}
+            <tr>
+                <td><a href="/s/{{ row['code'] }}" target="_blank">/s/{{ row['code'] }}</a></td>
+                <td>{{ row['target'] }}</td>
+                <td>{{ row['clicks'] }}</td>
+                <td>
+                    <button class="copy-btn" data-url="{{ request.host_url }}s/{{ row['code'] }}">Copy</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}
+
+{% block extra_styles %}
+<style>
+section {
+    margin-bottom: 2rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+input[name="url"] {
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+}
+
+button {
+    padding: 0.3rem 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+</style>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Copy to clipboard buttons
+    document.querySelectorAll(".copy-btn").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            const url = btn.getAttribute("data-url");
+            navigator.clipboard.writeText(url).then(function() {
+                btn.textContent = "Copied!";
+                setTimeout(() => btn.textContent = "Copy", 1500);
+            });
+        });
+    });
+
+    // Optional: AJAX form submission
+    const form = document.getElementById("create-form");
+    const msg = document.getElementById("create-message");
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const url = form.url.value.trim();
+        if (!url) return;
+        fetch("/s/api/create", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({url})
+        })
+        .then(res => res.json())
+        .then(data => {
+            msg.style.display = "block";
+            msg.textContent = `Short URL created: ${data.short}`;
+            form.reset();
+            setTimeout(() => msg.style.display = "none", 5000);
+        })
+        .catch(err => alert("Error creating short URL"));
+    });
+});
+</script>
+{% endblock %}

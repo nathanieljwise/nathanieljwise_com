@@ -2,13 +2,10 @@ from flask import Blueprint, request, redirect, abort, jsonify, render_template_
 from flask import session, redirect, url_for, flash
 import hashlib, random, string
 from .models import get_db
+from secrets import ADMIN_USER, ADMIN_PASS
 
 from functools import wraps
 from flask import Response
-
-# Simple HTTP Basic Auth
-ADMIN_USER = "admin"
-ADMIN_PASS = "password"  # change this
 
 def check_auth(username, password):
     return username == ADMIN_USER and password == ADMIN_PASS
@@ -99,34 +96,4 @@ def admin():
     """)
     links = cur.fetchall()
 
-    # inline template (you can move to templates/)
-    template = """
-    <!doctype html>
-    <html>
-    <head>
-        <title>Shortener Admin</title>
-    </head>
-    <body>
-        <h1>Shortener Admin</h1>
-
-        <h2>Create Short URL</h2>
-        <form method="post">
-            <input type="text" name="url" placeholder="https://example.com" required style="width:300px;">
-            <button type="submit">Create</button>
-        </form>
-
-        <h2>Existing Short URLs</h2>
-        <table border="1" cellpadding="5">
-            <tr><th>Short</th><th>Target</th><th>Clicks</th></tr>
-            {% for row in links %}
-            <tr>
-                <td><a href="/s/{{ row['code'] }}">/s/{{ row['code'] }}</a></td>
-                <td>{{ row['target'] }}</td>
-                <td>{{ row['clicks'] }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </body>
-    </html>
-    """
-    return render_template_string(template, links=links)
+    return render_template("admin.html", links=links)

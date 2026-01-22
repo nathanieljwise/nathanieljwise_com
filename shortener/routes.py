@@ -1,8 +1,8 @@
-from flask import Blueprint, request, redirect, abort, jsonify, render_template
+from flask import Blueprint, request, redirect, abort, jsonify, render_template_string
 from flask import session, redirect, url_for, flash
 import hashlib, random, string
 from .models import get_db
-from .config import ADMIN_USER, ADMIN_PASS
+from secrets import ADMIN_USER, ADMIN_PASS
 
 from functools import wraps
 from flask import Response

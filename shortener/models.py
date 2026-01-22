@@ -1,7 +1,7 @@
 import sqlite3
 from pathlib import Path
 
-DB_PATH = Path("/var/www/html/nathanieljwise/shortener/shortener.db")
+DB_PATH = Path(__file__).parent / "shortener.db"
 
 def get_db():
     con = sqlite3.connect(DB_PATH)

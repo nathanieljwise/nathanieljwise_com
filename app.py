@@ -1,9 +1,7 @@
 from flask import Flask, render_template
-from shortener import bp as shortener_bp
 import time
 
 app = Flask(__name__)
-app.register_blueprint(shortener_bp)
 
 @app.route('/')
 def index():

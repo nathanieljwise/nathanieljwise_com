@@ -1,4 +1,3 @@
 __pycache__/
 venv/
 static/img/printer/latest_printer_image.jpg
-shortener/secrets.py

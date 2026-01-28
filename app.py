@@ -11,9 +11,9 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/rsa')
-def rsa():
-    return render_template('rsa.html')
+@app.route('/publickeys')
+def publickeys():
+    return render_template('publickeys.html')
 
 @app.route('/gallery')
 def gallery():

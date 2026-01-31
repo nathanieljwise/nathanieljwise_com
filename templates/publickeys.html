@@ -6,39 +6,29 @@
 </header>
 <p>
 	You can message me securely at <a
-		href="mailto:nathanieljwise@protonmail.com">nathanieljwise@protonmail.com</a> by
-	encrypting your message using OpenSSL and one of my public keys: either
-	<a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.pem') }}"
-		target="_blank">RSA</a> or
-	<a href="{{ url_for('static', filename='NathanielMainECCPublicKey.pem') }}"
-		target="_blank">ECC</a>.
-	Send your message and its SHA256 hash to the secure email address above; I'll hash the encrypted
-	message, verify my
-	hash against yours, and decrypt the message.<br />
-</p>
-<p>
-	Each key is also available as an x509 certificate:
+		href="mailto:nathanieljwise@protonmail.com">nathanieljwise@protonmail.com</a>.
+		I have two public keys available, with each also available as an x509 certificate.
 <ul>
 	<li>
-		<a href="{{ url_for('static', filename='Nathanielx509RSA.crt') }}" target="_blank">RSA
-			x509</a>
-		<ul>
-			<li>
-				<a href="{{ url_for('static', filename='Nathanielx509RSA.hash') }}"
-					target="_blank">Hash</a>:&nbsp;b042020b20a7dc1de30eaf03a7740efbe537dd79a7476de88aceae4c6e252cea
-			</li>
-		</ul>
+		<a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.pem') }}" target="_blank">RSA key</a>
+		(Hash: <a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.hash') }}" 
+		target="_blank">4c35b21c0675c7bbe902aadbe2970c7315194ee754197b960524c9bc2cbe4df7</a>)
 	</li>
 	<li>
-		<a href="{{ url_for('static', filename='Nathanielx509ECC.crt') }}" target="_blank">ECC
-			x509</a>
+		<a href="{{ url_for('static', filename='Nathanielx509RSA.crt') }}" target="_blank">RSA x509</a>
+		 (Hash:&nbsp;<a href="{{ url_for('static', filename='Nathanielx509RSA.hash') }}" 
+		 target="_blank">b042020b20a7dc1de30eaf03a7740efbe537dd79a7476de88aceae4c6e252cea</a>)
 	</li>
-	<ul>
-		<li>
-			<a href="{{ url_for('static', filename='Nathanielx509ECC.hash') }}"
-				target="_blank">Hash</a>:&nbsp;306e191e87f36c93ee611b0561c839d714190de7f58639de0be38da09a3a3487
-		</li>
-	</ul>
+	<li>
+		<a href="{{ url_for('static', filename='NathanielMainECCPublicKey.pem') }}" target="_blank">ECC key</a>
+		(Hash: <a href="{{ url_for('static', filename='NathanielMainECCPublicKey.hash') }}" 
+		target="_blank">878d0a33a0dc5d91a25f830c92f51e14ecaeb93d5da7a89edfa3c559ba6f1297</a>)
+	</li>
+	<li>
+		<a href="{{ url_for('static', filename='Nathanielx509ECC.crt') }}" target="_blank">ECC x509</a>
+		(Hash:&nbsp;<a href="{{ url_for('static', filename='Nathanielx509ECC.hash') }}" 
+		target="_blank">306e191e87f36c93ee611b0561c839d714190de7f58639de0be38da09a3a3487</a>)
+	</li>
 </ul>
 </p>
 
@@ -61,11 +51,6 @@
 	b30FWlu867CXLsDu49zAHJlMuTusoBcZQ8wAz+i2i2Ig7ugSqjE3MwgpiQ7lQntc<br />
 	LNZ3L9EMpkU8amTcLDqEJtUCAwEAAQ==<br />
 	-----END PUBLIC KEY-----<br />
-	<br />
-	<a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.hash') }}"
-		target="_blank">SHA256 hash</a>:
-	4c35b21c0675c7bbe902aadbe2970c7315194ee754197b960524c9bc2cbe4df7
-	<br />
 </p>
 
 <p class="code">
@@ -78,10 +63,6 @@
 	0s0kYAqTNb/8k0t1jfQcy3hx2wmVg7IR83dp6vcXCaoEODNxGaZCk39ZR85Rz0Dc<br />
 	84yi+x+KQqsnWJ8jDy43b2blDWVsRKx0<br />
 	-----END PUBLIC KEY-----<br />
-	<br />
-	<a href="{{ url_for('static', filename='NathanielMainECCPublicKey.hash') }}"
-		target="_blank">SHA256 hash</a>:
-	878d0a33a0dc5d91a25f830c92f51e14ecaeb93d5da7a89edfa3c559ba6f1297</code>
 </p>
 {% endblock %}
 

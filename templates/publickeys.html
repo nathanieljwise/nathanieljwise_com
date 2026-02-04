@@ -4,6 +4,18 @@
 <header>
 	<h1>Public Key Cryptography</h1>
 </header>
+
+<!--
+AES_KEY=$(openssl rand -hex 32)
+AES_IV=$(openssl rand -hex 16)
+openssl enc -aes-256-cbc -K $AES_KEY -iv $AES_IV -in message.txt -out message.txt.enc
+openssl pkeyutl -encrypt -pubin -inkey NathanielMainRSAPublicKey.pem -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256 -out aes_key.enc <<< "$AES_KEY"
+openssl dgst -sha256 -sign NathanielMainRSAPrivateKey.pem -out aes_key.enc.sig aes_key.enc
+openssl dgst -sha256 -verify NathanielMainRSAPublicKey.pem -signature aes_key.enc.sig aes_key.enc
+AES_KEY=$(openssl pkeyutl -decrypt -inkey NathanielMainRSAPrivateKey.pem -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256 -in aes_key.enc)
+openssl enc -d -aes-256-cbc -K $AES_KEY -iv $AES_IV -in message.txt.enc -out message.txt.dec
+-->
+
 <p>
 	You can message me securely at <a
 		href="mailto:nathanieljwise@protonmail.com">nathanieljwise@protonmail.com</a>.

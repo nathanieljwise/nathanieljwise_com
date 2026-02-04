@@ -7,7 +7,12 @@
 <p>
 	You can message me securely at <a
 		href="mailto:nathanieljwise@protonmail.com">nathanieljwise@protonmail.com</a>.
-		I have two public keys available, with each also available as an x509 certificate.
+		I have two public keys available, with each also available as an X.509
+		 certificate. Generate a secure symmetric key, encrypt it with one of the
+		 public keys below, and then use that symmetric key to encrypt your 
+		 message. Send the encrypted key, encrypted message, and the hash of 
+		 each to me. I'll verify the hashes and then decrypt the key and the
+		 message in turn.
 <ul>
 	<li>
 		<a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.pem') }}" target="_blank">RSA key</a>
@@ -15,7 +20,7 @@
 		target="_blank">4c35b21c0675c7bbe902aadbe2970c7315194ee754197b960524c9bc2cbe4df7</a>)
 	</li>
 	<li>
-		<a href="{{ url_for('static', filename='Nathanielx509RSA.crt') }}" target="_blank">RSA x509</a>
+		<a href="{{ url_for('static', filename='Nathanielx509RSA.crt') }}" target="_blank">RSA X.509</a>
 		 (Hash:&nbsp;<a href="{{ url_for('static', filename='Nathanielx509RSA.hash') }}" 
 		 target="_blank">b042020b20a7dc1de30eaf03a7740efbe537dd79a7476de88aceae4c6e252cea</a>)
 	</li>
@@ -25,7 +30,7 @@
 		target="_blank">878d0a33a0dc5d91a25f830c92f51e14ecaeb93d5da7a89edfa3c559ba6f1297</a>)
 	</li>
 	<li>
-		<a href="{{ url_for('static', filename='Nathanielx509ECC.crt') }}" target="_blank">ECC x509</a>
+		<a href="{{ url_for('static', filename='Nathanielx509ECC.crt') }}" target="_blank">ECC X.509</a>
 		(Hash:&nbsp;<a href="{{ url_for('static', filename='Nathanielx509ECC.hash') }}" 
 		target="_blank">306e191e87f36c93ee611b0561c839d714190de7f58639de0be38da09a3a3487</a>)
 	</li>

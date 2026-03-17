@@ -27,10 +27,11 @@ body {
     margin-left: 20vw;
     display: flex;
     flex-direction: column;
-    height: auto;
+    min-height: 100vh;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
+    text-align: right;
 }
 
 .main-content p {
@@ -87,6 +88,17 @@ body {
     color: #000000;
 }
 
+.sidebar nav ul li a.active {
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 4px;
+}
+
+.sidebar nav ul li a.active i {
+    color: #000000;
+}
+
 .sidebar-logo {
     margin-top: auto;
     text-align: left;
@@ -110,9 +122,9 @@ footer {
     padding: 10px 10px;
     color: #d3d3d3;
     width: 100%;
-    position: relative;
-    bottom: 0;
-    left: 0;
+    margin-top: auto;
+    text-align: right;
+    font-size: 15px;
 }
 
 header {
@@ -164,7 +176,7 @@ a:hover {
     }
 
     .sidebar nav ul li {
-        display: inline-block;
+        display: block;
         margin: 0;
     }
 
@@ -175,6 +187,18 @@ a:hover {
 
     .sidebar-logo img {
         display: none;
+    }
+
+    .sidebar::after {
+        content: '';
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
+        pointer-events: none;
+        display: block;
     }
 
     .main-content {

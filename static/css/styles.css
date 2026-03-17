@@ -162,7 +162,7 @@ a:hover {
 
     .sidebar {
         width: 100%;
-        max-height: 13vh;
+        min-height: 10vh;
         position: relative;
         text-align: left;
 

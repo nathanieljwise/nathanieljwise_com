@@ -28,6 +28,10 @@ def printing():
     now = time.time()
     return render_template('nowprinting.html', now=now)
 
+@app.route('/sandbox')
+def sandbox():
+    return render_template('sandbox.html')
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404

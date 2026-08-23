@@ -24,6 +24,8 @@ AES_KEY=$(openssl pkeyutl -decrypt -inkey NathanielMainRSAPrivateKey.pem -pkeyop
 		 message. Send the encrypted key, encrypted message, and the hash of 
 		 each to me. I'll verify the hashes and then decrypt the key and the
 		 message in turn.
+	<br><br> Shell script with example usage <a href="{{ url_for('static', filename='secure_encrypt.sh') }}" target="_blank">here</a>.
+
 <ul>
 	<li>
 		<a href="{{ url_for('static', filename='NathanielMainRSAPublicKey.pem') }}" target="_blank">RSA key</a>

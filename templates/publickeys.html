@@ -1,98 +1,101 @@
 {% extends 'base.html' %}
+{% set repo = 'https://github.com/nathanieljwise/nathanieljwise_com/blob/main' %}
 
 {% block content %}
 <header>
-	<h1>Public Key Cryptography</h1>
+	<h1>Public Keys</h1>
 </header>
 
-<!--
-AES_KEY=$(openssl rand -hex 32)
-AES_IV=$(openssl rand -hex 16)
-openssl enc -aes-256-cbc -K $AES_KEY -iv $AES_IV -in message.txt -out message.txt.enc
-echo -n "$AES_KEY" | xxd -r -p | openssl pkeyutl -encrypt -pubin -inkey NathanielMainRSAPublicKey.pem -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256 -out aes_key.enc
-openssl dgst -sha256 -sign NathanielMainRSAPrivateKey.pem -out aes_key.enc.sig aes_key.enc
-openssl dgst -sha256 -verify NathanielMainRSAPublicKey.pem -signature aes_key.enc.sig aes_key.enc
-AES_KEY=$(openssl pkeyutl -decrypt -inkey NathanielMainRSAPrivateKey.pem -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256 -in aes_key.enc | xxd -p -c 256); openssl enc -d -aes-256-cbc -K $AES_KEY -iv $AES_IV -in message.txt.enc -out message.txt.dec
--->
+{# 
+   TODO: add retirement dates to the "Retired keys" list if you want them shown.
+   Keep the fingerprints and script hash in KEYS.md identical to the values on this page.
+#}
 
 <p>
-You can message me securely at <a
-href="mailto:nathanieljwise@protonmail.com">nathanieljwise@protonmail.com</a>.
-I have two public keys available - one a 4096 bit RSA key, and one for 
-elliptic curve cryptography using curve P-384. To use them, generate 
-some secure symmetric key, and then encrypt it to send to me. You can use
-my RSA key to encrypt the symmetric key directly, or you can use the ECC 
-key as part of Elliptic Curve Diffie Hellman to derive a shared key. 
-</p>
-<p>
-You can use this example script to input either of my public keys and encrypt
-your message. The script will generate a secure 256 AES key, encrypt your 
-content with AES-GCM, and output a single file containing the encrypted 
-message and symmetric key. Send that to me above and I'll recover your message.
-The script is hybrid public-key encryption: ECDH-ES (P-384) or RSA-OAEP key 
-wrapping with AES-256-GCM.
-</p>
-	
-<p>
-	Python script with example encryption 
-	<a href="{{ url_for('static', filename='secure_encrypt.sh') }}" target="_blank">here</a>.
+	You can message me securely at <a href="mailto:nathanieljwise@protonmail.com">nathanieljwise@protonmail.com</a>.
+	Encrypt your file with the script below using either of my public keys, then email me the single
+	encrypted file. The ECC key (P-384) is preferred; the RSA-4096 key is available if you need it.
 </p>
 
-<ul>
+<h2>How to encrypt</h2>
+<ol class="steps">
+	<li>Install the dependency: <code>pip install cryptography</code></li>
 	<li>
-		<a href="{{ url_for('static', filename='njwise_rsa_publicKey.pem') }}" target="_blank">RSA key</a>
-		<!-- (Hash: <a href="{{ url_for('static', filename='njwise_rsa_publicKey.hash') }}" 
-		target="_blank"> </a>) -->
+		Download <a href="{{ url_for('static', filename='hybrid_encrypt.py') }}" download>hybrid_encrypt.py</a>
+		(<a href="{{ repo }}/static/hybrid_encrypt.py">also on GitHub</a>).
+		Its SHA-256 is <code class="hash">{{ script_sha256 }}</code>.
 	</li>
-	<!-- <li>
-		<a href="/static/NathanielMainECCPublicKey.pem" download>ECC key</a><br>
-		SHA-256: <code class="hash">…64 hex characters…</code>
-		(<a href="/static/NathanielMainECCPublicKey.hash" download>hash file</a>)
-	</li> -->
+	<li>Download one of the keys below and check its fingerprint.</li>
 	<li>
-		<a href="{{ url_for('static', filename='njwise_ecc_publicKey.pem') }}" downloadtarget="_blank">ECC key</a>
-		<!-- (Hash: <a href="{{ url_for('static', filename='njwise_ecc_publicKey.hash') }}" 
-		target="_blank"> </a>) -->
+		Encrypt your file:
+		<figure class="key-block"><pre><code>python hybrid_encrypt.py encrypt --pubkey njwise_ecc_publicKey.pem --infile message.txt --outfile message.enc</code></pre></figure>
+	</li>
+</ol>
+
+<br />
+<h2>Keys</h2>
+<ul class="key-list">
+	<li>
+		<a href="{{ url_for('static', filename='njwise_ecc_publicKey.pem') }}" download>ECC key (P-384)</a>
+		(<a href="{{ repo }}/static/njwise_ecc_publicKey.pem">also on GitHub</a>)<br>
+		SHA-256 fingerprint:
+		<code class="hash">659e6494f682d9e7669ad20abd2907bee5a06674e97eabbdfa06f2d22dd8c192</code>
+	</li>
+	<li>
+		<a href="{{ url_for('static', filename='njwise_rsa_publicKey.pem') }}" download>RSA key (4096-bit)</a>
+		(<a href="{{ repo }}/static/njwise_rsa_publicKey.pem">also on GitHub</a>)<br>
+		SHA-256 fingerprint:
+		<code class="hash">a98270aec7ff8c17f9798f9f37d34a263c9e85701ff54961139d82aff66abfe2</code>
 	</li>
 </ul>
+
+<p>
+	To check a fingerprint, run these two commands on the downloaded key and compare the result:
+</p>
+<figure class="key-block"><pre><code>openssl pkey -pubin -in njwise_ecc_publicKey.pem -outform DER -out key.der
+openssl dgst -sha256 key.der</code></pre></figure>
+
+<p>
+	<a href="{{ repo }}/KEYS.md">KEYS.md</a> on GitHub, a separate system from this server, lists the same
+	fingerprints and script hash, along with key creation dates and the rotation history. Compare them
+	before you rely on a key. If they ever differ, don't use the key and contact me another way.
+</p>
+
+<p>
+	The scheme is hybrid public-key encryption: ECDH-ES (P-384) or RSA-OAEP key wrapping with
+	AES-256-GCM. It does not authenticate the sender, and email subjects, filenames and timestamps
+	are not encrypted.
 </p>
 
 <figure class="key-block">
-  <figcaption>4096 bit RSA:</figcaption>
-<pre><code>
------BEGIN PUBLIC KEY-----<br />
-MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAr7iC6DsK+bD2ftE+pnDX
-vt1xll5PX5Nzhy2ZCMRU+edtruZBMztnWOJuw341Y8ul48f436kddS9pBIONVVYP
-Zf3s88Yn6N+I8pGo7q3a0vJj2IDroCobmu3NdrM9F0lklRfVr/wMCrA/B57OpmQN
-a73LtzPqk1kagKqARXF39RC39vNndjSGfUimUUtjLsiD9Rj9q9DhPG3G6cb6jzfN
-4HWM0ArJ3ep5HBl0FY4OJjxpvHAREcVddjKVFgtqU6HM9EyXr+wp7ZauSmDnX1wi
-BEBF1q1AVGjhaxxLz1m8IBrtZfav9IxkQAirnCNVhuXhmy180tcXTrsPs3/Ezh7n
-PoWzcbO7FBi87TsNzpidB7BMPWU/QltAhA+0/V2bPIe2EaCOe4TdOyEO6rGpMGAL
-xH2cP39XEoJl4IcvvhRYMtXh/KZucOZXhR6KSXbaNROg8V5qxU2nyTDFph7/+66/
-ZuHP7LReEL6j7/o3d5EQXhUDwDBIPwVU3C71Y0MVbqazIqZ1QvREthIUPrSIpBk5
-V17H+4AQqSudGTxcjhsVN90/6+Crei5TwfuOO+Hohp6ZB9oLnouuWjzmEjzylAb7
-/eVUdq7B/GNDc/MSawf9uCjK8/j2MSGTkpIawdcv9NHvKeKbdOLmnhLQZs71nC/N
-ikz5EUfbBbfWYRRzsu8Z8ZECAwEAAQ==<br />
------END PUBLIC KEY-----
-</code></pre>
+	<figcaption>ECC with curve P-384:</figcaption>
+<pre><code>{{ ecc_pem|trim }}</code></pre>
 </figure>
 
 <figure class="key-block">
-  <figcaption>ECC with curve P-384:</figcaption>
-<pre><code>-----BEGIN PUBLIC KEY-----
-MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAE7RwPt5AQj46i73MtAqKQZONLh/Cu73xB
-VJWKmNEMzNnsJOBm61VwYmDniKX4XzVBdYmg116OFvEb2T4KbTtxks1a2yFZT/ag
-XQuvSGtLxW3oeT3gtz0HC1rSTAUfoByA
------END PUBLIC KEY-----<br />
-</code></pre>
+	<figcaption>4096 bit RSA:</figcaption>
+<pre><code>{{ rsa_pem|trim }}</code></pre>
 </figure>
+
+<h2>Retired keys</h2>
+<p>These earlier keys have been replaced; do not encrypt to them.</p>
+<ul class="key-list">
+	<li>
+		ECC (P-384), SHA-256 fingerprint:
+		<code class="hash">7bba320c9c60220ceca716140e1d9cc1a606c0d86a26180d79a0462925e2928d</code>
+	</li>
+	<li>
+		RSA (4096-bit), SHA-256 fingerprint:
+		<code class="hash">bd7a665e083cf7eab6ec26e3b0d190aa12363eb4ecf1ed4cbb423939f394e4d9</code>
+	</li>
+</ul>
 {% endblock %}
 
 {% block extra_styles %}
 <style>
 	body {
 		/* https://unsplash.com/photos/a-black-and-white-photo-of-a-tunnel-72aEtYlS5K0 */
-		background-image: url('/static/img/backgrounds/rsa_bg.jpg');
+		background-image: url('{{ url_for("static", filename="img/backgrounds/rsa_bg.jpg") }}');
 	}
 </style>
 {% endblock %}

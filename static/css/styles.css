@@ -191,6 +191,9 @@ a:hover {
     word-break: break-all;
     overflow-wrap: anywhere;
 }
+.main-content h2 { padding-left: 2%; }
+.steps li { margin-bottom: 1rem; }
+.steps .key-block { margin-left: 0; }
 
 /* Responsive Design */
 

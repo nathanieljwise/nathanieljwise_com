@@ -153,6 +153,45 @@ a:hover {
     width: 100%;
 }
 
+.key-block {
+    margin: 1.5rem 2%;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.key-block figcaption {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.key-block pre {
+    margin: 0;
+    padding: 15px 20px;
+    background: rgba(13, 13, 13, 0.75);
+    overflow-x: auto;
+}
+
+.key-block code {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    font-size: 0.8em;
+    line-height: 1.4;
+    white-space: pre;
+}
+
+.key-list li {
+    margin-bottom: 1rem;
+}
+
+.hash {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    font-size: 0.8em;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+}
+
 /* Responsive Design */
 
 @media (max-width: 768px) {
@@ -215,6 +254,20 @@ a:hover {
 @media (max-width: 480px) {
     .sidebar nav ul li {
         display: block;
+
+.key-block {
+    margin: 1.5rem 2%;
+    width: fit-content;
+    max-width: 100%;          /* on phones it stops at the screen edge and scrolls inside */
+}
+
+    .key-block pre {
+        padding: 10px 12px;
+    }
+
+    .key-block code {
+        font-size: 0.65em;
+    }
     }
 
     .sidebar nav ul li a {

@@ -1,7 +1,13 @@
 from flask import Flask, render_template
 import time
+from pathlib import Path
+import hashlib
 
 app = Flask(__name__)
+
+STATIC_DIR = Path(app.root_path) / "static"
+def read_static(name):
+    return (STATIC_DIR / name).read_text(encoding="utf-8")
 
 @app.route('/')
 def index():
@@ -13,7 +19,13 @@ def about():
 
 @app.route('/publickeys')
 def publickeys():
-    return render_template('publickeys.html')
+    script = (STATIC_DIR / "hybrid_encrypt.py").read_bytes()
+    return render_template(
+        'publickeys.html',
+        rsa_pem=read_static('njwise_rsa_publicKey.pem'),
+        ecc_pem=read_static('njwise_ecc_publicKey.pem'),
+        script_sha256=hashlib.sha256(script).hexdigest(),
+    )
 
 @app.route('/gallery')
 def gallery():

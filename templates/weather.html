@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+    <h1>Weather</h1>
+</header>
+
+<p>
+    Weather data from
+    <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">OpenWeather</a>.
+</p>
+
+<h2>Current conditions</h2>
+<p class="wx-note" id="wx-updated">Loading…</p>
+<div id="wx-current" class="wx-grid"></div>
+
+<h2>History</h2>
+<div class="wx-controls">
+    <div class="wx-btns">
+        <button type="button" class="wx-btn" data-range="24h">24 hours</button>
+        <button type="button" class="wx-btn" data-range="7d">7 days</button>
+        <button type="button" class="wx-btn" data-range="30d">30 days</button>
+    </div>
+    <select id="wx-metric" aria-label="Metric"></select>
+</div>
+<div id="wx-chips" class="wx-chips"></div>
+<div class="wx-chart-box"><canvas id="wx-series"></canvas></div>
+
+<h2 id="wx-rose-title">Wind rose</h2>
+<div class="wx-controls">
+    <select id="wx-rose-city" aria-label="City"></select>
+</div>
+<div class="wx-rose-box" id="wx-rose"></div>
+
+<h2>Daily highs and lows</h2>
+<div class="wx-controls">
+    <select id="wx-daily-city" aria-label="City"></select>
+</div>
+<div class="wx-chart-box"><canvas id="wx-daily"></canvas></div>
+
+<p class="wx-note">
+    Wind speeds reported in m/s and converted to mph. Daily highs and lows from each location's
+    calendar day, for the previous 30 days.
+</p>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='vendor/chartjs/chart.umd.js') }}"></script>
+<script src="{{ url_for('static', filename='js/weather.js') }}"></script>
+{% endblock %}
+
+{% block extra_styles %}
+<style>
+    body {
+        background-color: #12171d;
+        background-image: linear-gradient(160deg, #0f1318 0%, #1c2733 100%);
+        /* background-image: url('{{ url_for("static", filename="img/backgrounds/weather_bg.jpg") }}'); */
+    }
+</style>
+{% endblock %}

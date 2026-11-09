@@ -4,4 +4,6 @@ static/img/printer/latest_printer_image.jpg
 *private*
 *.key
 pass*.txt
-*.tgz
+*.tgzdata/
+*.bak-weather
+

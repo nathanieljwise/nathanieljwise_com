@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory, abort
 import time
 from pathlib import Path
 import hashlib
@@ -43,6 +43,22 @@ def printing():
 @app.route('/sandbox')
 def sandbox():
     return render_template('sandbox.html')
+
+WEATHER_DATA_DIR = Path(app.root_path) / "data" / "weather"
+WEATHER_FILES = {"latest", "series_24h", "series_7d", "series_30d", "daily", "wind_rose"}
+
+@app.route('/weather')
+def weather():
+    return render_template('weather.html')
+
+@app.route('/api/weather/<name>.json')
+def weather_data(name):
+    if name not in WEATHER_FILES:
+        abort(404)
+    resp = send_from_directory(str(WEATHER_DATA_DIR), f"{name}.json",
+                               mimetype="application/json")
+    resp.headers["Cache-Control"] = "public, max-age=60"
+    return resp
 
 @app.errorhandler(404)
 def page_not_found(e):

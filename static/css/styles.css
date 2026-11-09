@@ -1,292 +1,484 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    font-size: 20px;
-    font-weight: 200;
-    margin: 0;
-    padding: 0;
-    color: #d3d3d3;
-    height: 100vh;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+  color: #d3d3d3;
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .wrapper {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
 }
 
 .main-content {
-    flex-grow: 1;
-    margin-left: 20vw;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    overflow-y: auto;
+  flex-grow: 1;
+  margin-left: 20vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
 }
 
 .main-content p {
-    padding-left: 2%;
-    padding-right: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 .sidebar {
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 1.2em;
-    height: 100%;
-    width: 20vw;
-    position: fixed;
-    padding: 20px 0;
-    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 0.06);
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  height: 100%;
+  width: 20vw;
+  position: fixed;
+  padding: 20px 0;
+  box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .sidebar nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .sidebar nav ul li {
-    text-align: left;
-    margin-bottom: 10px;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 .sidebar nav ul li a {
-    color: #a5a5a5;
-    text-decoration: none;
-    display: block;
-    padding: 10px 20px;
-    word-wrap: break-word;
+  color: #a5a5a5;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  word-wrap: break-word;
 }
 
 .sidebar ul li a i {
-    width: 30px;
-    text-align: left;
-    margin-right: 8px;
+  width: 30px;
+  text-align: left;
+  margin-right: 8px;
 }
 
 .sidebar nav ul li a:hover {
-    background-color: rgba(66, 66, 66, 0.50);
+  background-color: rgba(66, 66, 66, 0.5);
 }
 
 .sidebar ul li a:hover i {
-    color: #000000;
+  color: #000000;
 }
 
 .sidebar nav ul li a.active {
-    font-weight: bold;
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.10);
-    border-radius: 4px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 
 .sidebar nav ul li a.active i {
-    color: #000000;
+  color: #000000;
 }
 
 .sidebar-logo {
-    margin-top: auto;
-    text-align: left;
-    padding: 0.5rem 2;
-    margin-left: 2rem;
+  margin-top: auto;
+  text-align: left;
+  margin-left: 2rem;
 }
 
 .sidebar-logo img {
-    max-width: 80px;
-    height: auto;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
+  max-width: 80px;
+  height: auto;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  cursor: pointer;
 }
 
 .sidebar-logo img:hover {
-    transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 footer {
-    text-align: center;
-    padding: 10px 10px;
-    color: #d3d3d3;
-    width: 100%;
-    margin-top: auto;
-    text-align: right;
-    font-size: 15px;
+  text-align: center;
+  padding: 10px 10px;
+  color: #d3d3d3;
+  width: 100%;
+  margin-top: auto;
+  text-align: right;
+  font-size: 15px;
 }
 
 header {
-    text-align: center;
-    padding: 10px 0;
+  text-align: center;
+  padding: 10px 0;
 }
 
 header h1,
 footer p {
-    margin: 0;
+  margin: 0;
 }
 
 a {
-    color: #AAA;
+  color: #aaa;
 }
 
 a:hover {
-    color: #33ccff;
+  color: #33ccff;
 }
 
 .code {
-    background: rgba(13, 13, 13, 0.75);
-    font-family: 'Courier New', Courier, monospace;
-    padding: 15px 20px;
-    white-space: nowrap;
-    overflow-x: auto;
-    width: 100%;
+  background: rgba(13, 13, 13, 0.75);
+  font-family: "Courier New", Courier, monospace;
+  padding: 15px 20px;
+  white-space: nowrap;
+  overflow-x: auto;
+  width: 100%;
 }
 
 .key-block {
-    margin: 1.5rem 2%;
-    width: fit-content;
-    max-width: 100%;
+  margin: 1.5rem 2%;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .key-block figcaption {
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .key-block pre {
-    margin: 0;
-    padding: 15px 20px;
-    background: rgba(13, 13, 13, 0.75);
-    overflow-x: auto;
+  margin: 0;
+  padding: 15px 20px;
+  background: rgba(13, 13, 13, 0.75);
+  overflow-x: auto;
 }
 
 .key-block code {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 400;
-    font-size: 0.8em;
-    line-height: 1.4;
-    white-space: pre;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 400;
+  font-size: 0.8em;
+  line-height: 1.4;
+  white-space: pre;
 }
 
 .key-list li {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .hash {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 400;
-    font-size: 0.8em;
-    word-break: break-all;
-    overflow-wrap: anywhere;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 400;
+  font-size: 0.8em;
+  word-break: break-all;
+  overflow-wrap: anywhere;
 }
-.main-content h2 { padding-left: 2%; }
-.steps li { margin-bottom: 1rem; }
-.steps .key-block { margin-left: 0; }
+.main-content h2 {
+  padding-left: 2%;
+}
+.steps li {
+  margin-bottom: 1rem;
+}
+.steps .key-block {
+  margin-left: 0;
+}
 
 /* Responsive Design */
 
 @media (max-width: 768px) {
-    .wrapper {
-        flex-direction: column;
-    }
+  .wrapper {
+    flex-direction: column;
+  }
 
-    .sidebar {
-        width: 100%;
-        min-height: 10vh;
-        position: relative;
-        text-align: left;
+  .sidebar {
+    width: 100%;
+    min-height: 10vh;
+    position: relative;
+    text-align: left;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100vh;
-        padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 1rem;
+  }
 
-    }
+  .sidebar nav ul li {
+    display: block;
+    margin: 0;
+  }
 
-    .sidebar nav ul li {
-        display: block;
-        margin: 0;
-    }
+  .sidebar nav ul li a {
+    font-size: 0.9em;
+    padding: 10px;
+  }
 
-    .sidebar nav ul li a {
-        font-size: 0.9em;
-        padding: 10px;
-    }
+  .sidebar-logo img {
+    display: none;
+  }
 
-    .sidebar-logo img {
-        display: none;
-    }
+  .sidebar::after {
+    content: "";
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
+    pointer-events: none;
+    display: block;
+  }
 
-    .sidebar::after {
-        content: '';
-        position: sticky;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 40px;
-        background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
-        pointer-events: none;
-        display: block;
-    }
+  .main-content {
+    margin-left: 0;
+    padding: 10px;
+    height: auto;
+  }
 
-    .main-content {
-        margin-left: 0;
-        padding: 10px;
-        height: auto;
-    }
-
-    footer {
-        position: relative;
-        text-align: center;
-    }
+  footer {
+    position: relative;
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
-    .sidebar nav ul li {
-        display: block;
+  .sidebar nav ul li {
+    display: block;
+  }
 
-.key-block {
-    margin: 1.5rem 2%;
-    width: fit-content;
-    max-width: 100%;          /* on phones it stops at the screen edge and scrolls inside */
+  .key-block pre {
+    padding: 10px 12px;
+  }
+
+  .key-block code {
+    font-size: 0.65em;
+  }
+
+  .sidebar nav ul li a {
+    font-size: 0.8em;
+    padding: 8px;
+  }
+
+  .sidebar-logo img {
+    display: none;
+  }
+
+  main {
+    padding: 5px;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
 }
 
-    .key-block pre {
-        padding: 10px 12px;
-    }
-
-    .key-block code {
-        font-size: 0.65em;
-    }
-    }
-
-    .sidebar nav ul li a {
-        font-size: 0.8em;
-        padding: 8px;
-    }
-
-    .sidebar-logo img {
-        display: none;
-    }
-
-    main {
-        padding: 5px;
-    }
-
-    p {
-        font-size: 0.9em;
-    }
+/* Weather dashboard */
+/* Panels use the same translucent black as the key blocks on the Public Keys page,
+   so they stay readable over any background image. */
+.wx-note {
+  font-size: 0.8em;
+  color: #a5a5a5;
 }
+
+.wx-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  padding: 0 2%;
+}
+
+.wx-card {
+  background: rgba(13, 13, 13, 0.75);
+  border-top: 3px solid #33ccff;
+  border-radius: 4px;
+  padding: 12px 14px;
+}
+
+.wx-card h3 {
+  margin: 0 0 4px;
+  font-size: 1em;
+  font-weight: bold;
+}
+.wx-temp {
+  font-size: 1.9em;
+  line-height: 1.2;
+}
+.wx-line {
+  font-size: 0.75em;
+  color: #a5a5a5;
+}
+.wx-stale {
+  opacity: 0.55;
+}
+
+.wx-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 0 2%;
+  margin: 0.5rem 0;
+}
+
+.wx-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.wx-btn,
+.wx-chip,
+.wx-controls select {
+  font: inherit;
+  font-size: 0.8em;
+  color: #a5a5a5;
+  background: rgba(13, 13, 13, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.wx-controls select {
+  background: #1a1a1a;
+  color: #d3d3d3;
+}
+
+/* Same hover and active treatment as the sidebar links */
+.wx-btn:hover,
+.wx-chip:hover {
+  background-color: rgba(66, 66, 66, 0.5);
+}
+
+.wx-btn.active {
+  font-weight: bold;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.wx-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 2%;
+}
+.wx-chip {
+  color: #d3d3d3;
+  border-left: 4px solid var(--chip, #33ccff);
+}
+.wx-chip[aria-pressed="false"] {
+  opacity: 0.45;
+}
+
+.wx-chart-box {
+  position: relative;
+  height: 380px;
+  margin: 1rem 2%;
+  padding: 12px 14px;
+  background: rgba(13, 13, 13, 0.75);
+  border-radius: 4px;
+}
+
+@media (max-width: 480px) {
+  .wx-chart-box {
+    height: 300px;
+  }
+  .wx-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Wind rose */
+.wx-rose-box {
+  margin: 1rem 2%;
+  padding: 12px 14px;
+  background: rgba(13, 13, 13, 0.75);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.wx-rose-box svg {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+}
+.wx-ring {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 1;
+}
+.wx-wedge {
+  stroke: rgba(13, 13, 13, 0.6);
+  stroke-width: 0.5;
+}
+.wx-ring-label {
+  fill: #a5a5a5;
+  font-size: 11px;
+  text-anchor: middle;
+}
+.wx-ring-halo {
+  fill: rgba(13, 13, 13, 0.9);
+  font-size: 11px;
+  text-anchor: middle;
+  stroke: rgba(13, 13, 13, 0.9);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.wx-dir {
+  fill: #a5a5a5;
+  font-size: 14px;
+  text-anchor: middle;
+}
+.wx-dir-main {
+  fill: #d3d3d3;
+  font-size: 16px;
+  font-weight: bold;
+}
+.wx-calm {
+  fill: #d3d3d3;
+  font-size: 11px;
+  text-anchor: middle;
+}
+.wx-now {
+  fill: #ffd166;
+}
+
+.wx-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
+  margin-top: 4px;
+  font-size: 0.7em;
+  color: #a5a5a5;
+}
+.wx-legend-item::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  vertical-align: -1px;
+  background: var(--sw);
+  border-radius: 2px;
+}
+
+/* End weather dashboard */
